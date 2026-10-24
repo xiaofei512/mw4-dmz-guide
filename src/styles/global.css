@@ -66,6 +66,26 @@ input::placeholder { color: var(--fg-muted); opacity: 1; }
 .filters { margin-bottom: .75rem; }
 .empty { color: var(--fg-muted); }
 
+[data-filter-table] .filters-wrap { border: 1px solid var(--border); border-radius: .2rem; background: var(--surface); }
+[data-filter-table] .filters-wrap > summary { padding: .65rem .8rem; cursor: pointer; font-weight: 700; }
+[data-filter-table] [data-filter-summary] { margin-left: .5rem; color: var(--fg-muted); font-size: .875rem; font-weight: 400; overflow-wrap: anywhere; }
+[data-filter-table] .filters { margin: 0; padding: .8rem; }
+[data-filter-table] [data-query] { flex: 1 1 12rem; min-width: 0; }
+[data-filter-table] .filter-help { flex-basis: 100%; margin: 0; color: var(--fg-muted); font-size: .8125rem; }
+[data-filter-table] .status-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+[data-filter-table] .chip, [data-filter-table] .filter-empty { padding: .45rem .75rem; border: 1px solid var(--border); border-radius: .2rem; background: var(--bg-elevated); color: var(--fg); font: inherit; cursor: pointer; }
+[data-filter-table] .chip:hover, [data-filter-table] .filter-empty:hover { border-color: var(--accent); }
+[data-filter-table] .chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-muted); color: var(--accent); }
+[data-filter-table] .filter-empty { color: var(--accent); }
+[data-filter-table] .table-scroll { position: relative; max-height: min(70vh, 40rem); overflow: auto; }
+[data-filter-table] thead th { position: sticky; top: 0; z-index: 1; background: var(--surface); box-shadow: 0 1px 0 var(--border); }
+
+@media (min-width: 40.01rem) {
+  [data-filter-table] .filters-wrap > summary { display: none; }
+  [data-filter-table] .filters-wrap::details-content { display: contents; content-visibility: visible; }
+  [data-filter-table] .filters-wrap > .filters { display: flex; }
+}
+
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: .75rem; list-style: none; padding: 0; }
 .cards li { min-width: 0; }
 .cards a { display: block; height: 100%; padding: 1rem; border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: .25rem; background: var(--bg-elevated); font-weight: 700; overflow-wrap: anywhere; }

@@ -1,23 +1,38 @@
 ---
 interface Props { columns: string[]; caption: string; id: string; rows?: string[][]; note?: string; isTemplate?: boolean }
 const { columns, caption, id, rows = [], note, isTemplate = true } = Astro.props;
+const statusColumnIndex = columns.findIndex(column => /status/i.test(column));
+const statusTokens = { confirmed: /\bconfirmed\b/i, reported: /\breported\b/i };
 ---
-<div data-filter-table data-is-template={String(isTemplate)}>
-  <div class="filters">
-    <label for={`${id}-column`}>Filter column</label>
-    <select id={`${id}-column`} data-column>{columns.map((column, index) => <option value={index}>{column}</option>)}</select>
-    <label for={`${id}-query`}>Filter text</label>
-    <input id={`${id}-query`} data-query type="search" placeholder="Type to filter" />
-  </div>
-  <div class="table-scroll">
+<div data-filter-table data-is-template={String(isTemplate)} data-status-column={statusColumnIndex}>
+  <details class="filters-wrap">
+    <summary>筛选 <span data-filter-summary>无筛选</span></summary>
+    <div class="filters">
+      <label for={`${id}-column`}>Filter column</label>
+      <select id={`${id}-column`} data-column>{columns.map((column, index) => <option value={index}>{column}</option>)}</select>
+      <label for={`${id}-query`}>Filter text</label>
+      <input id={`${id}-query`} data-query type="search" placeholder="Type to filter" />
+      <div class="status-chips" role="group" aria-label="Status 筛选" aria-describedby={`${id}-filter-help`}>
+        <button type="button" class="chip" data-status="confirmed" aria-pressed="false">confirmed</button>
+        <button type="button" class="chip" data-status="reported" aria-pressed="false">reported</button>
+      </div>
+      <p class="filter-help" id={`${id}-filter-help`}>选择状态后仅显示匹配行；两个状态同时选中时匹配任一状态，并叠加列文本筛选；未选中状态时不限制状态。</p>
+    </div>
+  </details>
+  <div class="table-scroll" tabindex="0" role="region" aria-label={`${caption}（可滚动表格）`}>
     <table>
       <caption>{caption}</caption>
       <thead><tr>{columns.map(column => <th scope="col">{column}</th>)}</tr></thead>
-      <tbody>{rows.map(row => <tr>{row.map(cell => <td>{cell}</td>)}</tr>)}</tbody>
+      <tbody>{rows.map(row => <tr>{row.map((cell, index) => <td>{index === statusColumnIndex && statusTokens.confirmed.test(cell)
+        ? <span class="badge badge-confirmed">{cell}</span>
+        : index === statusColumnIndex && statusTokens.reported.test(cell)
+          ? <span class="badge badge-reported">{cell}</span>
+          : cell}</td>)}</tr>)}</tbody>
     </table>
   </div>
   {note && <p class="empty">{note}</p>}
   <p data-result role="status" aria-live="polite">{rows.length}{isTemplate ? ' template rows. Awaiting verification.' : ' rows.'}</p>
+  <button type="button" class="filter-empty" data-clear hidden>无匹配 · 清除筛选</button>
   <noscript>The table remains readable without JavaScript; filtering requires JavaScript.</noscript>
 </div>
 <script>
@@ -25,19 +40,55 @@ const { columns, caption, id, rows = [], note, isTemplate = true } = Astro.props
     const column = container.querySelector<HTMLSelectElement>('[data-column]')!;
     const query = container.querySelector<HTMLInputElement>('[data-query]')!;
     const result = container.querySelector<HTMLElement>('[data-result]')!;
+    const panel = container.querySelector<HTMLDetailsElement>('.filters-wrap')!;
+    const summary = container.querySelector<HTMLElement>('[data-filter-summary]')!;
+    const chips = Array.from(container.querySelectorAll<HTMLButtonElement>('[data-status]'));
+    const clear = container.querySelector<HTMLButtonElement>('[data-clear]')!;
     const rows = Array.from(container.querySelectorAll<HTMLTableRowElement>('tbody tr'));
     const isTemplate = container.dataset.isTemplate !== 'false';
+    const statusColumnIndex = Number(container.dataset.statusColumn);
+    const statusTokens = { confirmed: /\bconfirmed\b/i, reported: /\breported\b/i };
+    const desktop = window.matchMedia('(min-width: 40.01rem)');
+    const updatePanel = () => { panel.open = desktop.matches; };
+    updatePanel();
+    desktop.addEventListener('change', updatePanel);
     const filter = () => {
       const search = query.value.trim().toLocaleLowerCase();
+      const activeStatuses = chips
+        .filter(chip => chip.getAttribute('aria-pressed') === 'true')
+        .map(chip => chip.dataset.status as keyof typeof statusTokens);
       let count = 0;
       rows.forEach(row => {
-        row.hidden = !(row.cells[Number(column.value)]?.textContent ?? '').toLocaleLowerCase().includes(search);
+        const cellText = row.cells[Number(column.value)]?.textContent ?? '';
+        const statusText = statusColumnIndex >= 0
+          ? row.cells[statusColumnIndex]?.textContent ?? ''
+          : Array.from(row.cells, cell => cell.textContent ?? '').join(' ');
+        // Selected statuses use OR; the column text filter is always ANDed with them.
+        const matchesStatus = activeStatuses.length === 0 || activeStatuses.some(status => statusTokens[status].test(statusText));
+        row.hidden = !cellText.toLocaleLowerCase().includes(search) || !matchesStatus;
         if (!row.hidden) count++;
       });
       result.textContent = `${count} of ${rows.length}${isTemplate ? ' template rows shown. Awaiting verification.' : ' rows shown.'}`;
+      clear.hidden = count !== 0;
+      summary.textContent = [
+        ...activeStatuses,
+        ...(search ? [`${column.selectedOptions[0].textContent}: “${query.value.trim()}”`] : []),
+      ].join(' · ') || '无筛选';
     };
     column.addEventListener('change', filter);
     query.addEventListener('input', filter);
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      chip.setAttribute('aria-pressed', String(chip.getAttribute('aria-pressed') !== 'true'));
+      filter();
+    }));
+    clear.addEventListener('click', () => {
+      query.value = '';
+      column.selectedIndex = 0;
+      chips.forEach(chip => chip.setAttribute('aria-pressed', 'false'));
+      filter();
+      if (panel.open || desktop.matches) query.focus();
+      else panel.querySelector('summary')!.focus();
+    });
     filter();
   });
 </script>
