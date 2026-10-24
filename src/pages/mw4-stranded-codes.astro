@@ -4,18 +4,10 @@ import FilterableTable from '../components/FilterableTable.astro';
 
 const rows = [
   [
-    "（不填具体字符串——待核）",
-    "（待核）",
-    "（待核——禁止编造）",
-    "reported",
-    "2026-10-24",
-    ""
-  ],
-  [
-    "（不填具体字符串——待核）",
-    "（待核）",
-    "（待核）",
-    "reported",
+    "（不填具体字符串——无官方码表）",
+    "战役 Mission 10「Stranded」沙盒键盘（非 DMZ keys）",
+    "",
+    "—",
     "2026-10-24",
     ""
   ]
@@ -23,26 +15,27 @@ const rows = [
 ---
 <GuideLayout title="MW4 Stranded Codes" lang="zh-CN">
   <div slot="definition">
-    <p>本表收录与 MW4 / DMZ <strong>Stranded codes</strong> 相关的代码或标签、使用场景与效果摘要。</p>
-    <p><strong>不保证可用</strong>：未核实代码一律 <code>reported</code> 或整行不写。</p>
-    <p><strong>禁止</strong>在草稿中填写具体代码字符串。</p>
+    <p>「Stranded」指<strong>战役 Mission 10</strong> 沙盒关卡中的<strong>键盘码（keypad codes）</strong>，不是 Hajin DMZ 钥匙；DMZ 钥匙见 <a href="/mw4-dmz-keys/">/mw4-dmz-keys</a>。</p>
+    <p>未找到 Activision 公开发布的「逐码数字表」。官方营销/FOB 博客不替代键盘码核验。</p>
+    <p>无官方码表，<strong>代码列不得标 <code>confirmed</code></strong>；未游戏内独立核实前，代码一律 <code>reported</code> 或整行不写。</p>
+    <p>本页<strong>不保证</strong>任何代码可用；社区指南间对码数量与坐标存在分歧时，保留空表 + 本声明。本批不写任何代码字符串。</p>
   </div>
   <div slot="how-to">
     <ol>
-      <li>只添加带 Sources 的行；无来源不进表。</li>
-      <li>读者应假设 <code>reported</code> 行可能失效、分区或已过期。</li>
+      <li>只添加带 Sources 且已核实的行；无一手来源不进表。</li>
+      <li>读者应假设任何未来 <code>reported</code> 行可能失效、分区或已过期。</li>
       <li><strong>筛选项（实现时）：</strong> Code / label · Where used · Status。</li>
-      <li>回 <a href="/dmz-mw4/">/dmz-mw4</a>。</li>
+      <li>需要 DMZ 钥匙 → <a href="/mw4-dmz-keys/">/mw4-dmz-keys</a>；回 <a href="/dmz-mw4/">/dmz-mw4</a>。</li>
     </ol>
   </div>
   <div slot="body">
     <p><strong>筛选项（产品实现时挂上）：</strong> Code / label · Where used · Status</p>
     <FilterableTable
       columns={["Code / label", "Where used", "Effect summary", "Status", "Last verified", "Sources"]}
-      caption="MW4 Stranded Codes — 待核行模板，无已核游戏数据"
+      caption="MW4 Stranded Codes — 战役 Mission 10 边界声明，无代码表"
       id="mw4-stranded-codes"
       rows={rows}
-      note={"定义声明：本页不保证任何代码可用；上线前若仍无一手来源，可保留空表 + 本声明，优于粘贴社区未核列表。"}
+      note={"定义声明：战役关卡码、非 DMZ keys、不保证可用；无官方码表故代码不得 confirmed。上线前若仍无一手来源，保留空表 + 本声明。"}
     />
   </div>
   <div slot="sources">
@@ -51,8 +44,8 @@ const rows = [
         <caption>Sources and update dates</caption>
         <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
         <tbody>
-          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>模式口径；Stranded / 代码机制是否官方点名待核</td></tr>
-          <tr id="source-2"><td>2</td><td>（待补）可复现一手或官方补丁说明</td><td>—</td><td>无一手则不把社区列表标 <code>confirmed</code></td></tr>
+          <tr id="source-1"><td>1</td><td>P0 来源清单 · B4 节</td><td>2026-10-24</td><td>范围澄清与「无官方码表」事实口径</td></tr>
+          <tr id="source-2"><td>2</td><td>（待补）游戏内核实 / 官方若日后公布码表</td><td>—</td><td>有官方背书前不升格代码行</td></tr>
         </tbody>
       </table>
     </div>

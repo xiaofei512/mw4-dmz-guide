@@ -4,28 +4,57 @@ import FilterableTable from '../components/FilterableTable.astro';
 
 const rows = [
   [
-    "（待核）",
-    "（待核）",
-    "（待核）",
-    "（待核——禁止编造效果）",
-    "reported",
+    "（机制）Keys as Stash item type",
+    "—",
+    "—",
+    "Stash can store Keys among Weapons, Gear, Consumables, 3D Printer Ingredients, and valuables.",
+    "confirmed",
     "2026-10-24",
-    ""
+    "[1]"
   ],
   [
-    "（待核）",
-    "（待核）",
-    "（待核）",
-    "（待核）",
-    "reported",
+    "（机制）Lieutenant special key",
+    "",
+    "",
+    "Lieutenants can also drop a special key to their own personal locked location.",
+    "confirmed",
     "2026-10-24",
-    ""
+    "[1]"
+  ],
+  [
+    "Police Station Key",
+    "",
+    "",
+    "Named in DMZ Progression Appendix Survival Kit contents（Ready for Launch）；具体开法/门址待交叉 → 名称存在性 confirmed，Opens 细节不升格",
+    "confirmed（名称/获取层级线索）",
+    "2026-10-24",
+    "[2]"
+  ],
+  [
+    "Black Market Weapons Locker Key",
+    "",
+    "",
+    "Named in DMZ Progression Appendix kit contents（Ready for Launch）；具体门址待交叉",
+    "confirmed（名称/获取层级线索）",
+    "2026-10-24",
+    "[2]"
+  ],
+  [
+    "Gun Store Weapons Locker Key",
+    "",
+    "",
+    "Named in DMZ Progression Appendix kit contents（Ready for Launch）；具体门址待交叉",
+    "confirmed（名称/获取层级线索）",
+    "2026-10-24",
+    "[2]"
   ]
 ];
 ---
 <GuideLayout title="MW4 DMZ Keys List" lang="zh-CN">
   <div slot="definition">
     <p>本表收录 MW4 DMZ <strong>钥匙（Keys）</strong>：名称、大致点位/POI、用途摘要与核实状态。</p>
+    <p>钥匙是 Stash 可存物品类型之一。Lieutenant 可掉落通往其个人锁定点的特殊钥匙。</p>
+    <p><strong>具体哪座警局 / 哪扇门 / Grid</strong>，官方 Part 2 <strong>未逐钥列出</strong>；本批 Location/Grid 留空，开法仅写官方笼统描述。</p>
     <p><strong>不</strong>覆盖：未命名掉落、未核验的精确坐标冒充官方、编造的开启效果。</p>
     <p>单点位深页（<a href="/mw4-dmz-police-station/">Police Station</a>、<a href="/mw4-dmz-radio-tower/">Radio Tower</a> 等）为 P1，本批仅预留链。</p>
   </div>
@@ -42,10 +71,11 @@ const rows = [
     <p><strong>筛选项（产品实现时挂上）：</strong> Key name · Location / POI · Grid (approx.) · Opens / use · Status</p>
     <FilterableTable
       columns={["Key name", "Location / POI", "Grid (approx.)", "Opens / use", "Status", "Last verified", "Sources"]}
-      caption="MW4 DMZ Keys List — 待核行模板，无已核游戏数据"
+      caption="MW4 DMZ Keys List — 5 行官方机制 / 附录钥名"
       id="mw4-dmz-keys"
       rows={rows}
-      note={"空行模板仅示意列结构；禁止填入未核验的钥匙名效果、代码或数值。有一手来源后再增行并改 confirmed。"}
+      isTemplate={false}
+      note={"仅写入官方点名的 kit / 机制行。其余逐钥 Location/Grid/Opens 依赖工具站交叉或游戏内核验，本批不填。"}
     />
   </div>
   <div slot="sources">
@@ -54,11 +84,11 @@ const rows = [
         <caption>Sources and update dates</caption>
         <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
         <tbody>
-          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>术语与模式口径；钥匙逐条需游戏内/官方补丁再核</td></tr>
-          <tr id="source-2"><td>2</td><td>（待补）游戏内截图 / 官方博客 / 可复现一手</td><td>—</td><td>逐行挂 Sources 编号</td></tr>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide">FOB Full Intel Guide</a></td><td>Oct 09, 2026</td><td>Keys in Stash；Lieutenant special key</td></tr>
+          <tr id="source-2"><td>2</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-progression-prestige">Ready for Launch Progression</a></td><td>Oct 19, 2026</td><td>Appendix Survival/Equipment Kit 点名 Police Station Key / Black Market / Gun Store Weapons Locker Key</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Sources: <a href="#source-1">[1]</a></p>
+    <p>Sources: <a href="#source-1">[1]</a><a href="#source-2">[2]</a></p>
   </div>
 </GuideLayout>

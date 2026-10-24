@@ -1,8 +1,8 @@
 ---
-interface Props { columns: string[]; caption: string; id: string; rows?: string[][]; note?: string }
-const { columns, caption, id, rows = [], note } = Astro.props;
+interface Props { columns: string[]; caption: string; id: string; rows?: string[][]; note?: string; isTemplate?: boolean }
+const { columns, caption, id, rows = [], note, isTemplate = true } = Astro.props;
 ---
-<div data-filter-table>
+<div data-filter-table data-is-template={String(isTemplate)}>
   <div class="filters">
     <label for={`${id}-column`}>Filter column</label>
     <select id={`${id}-column`} data-column>{columns.map((column, index) => <option value={index}>{column}</option>)}</select>
@@ -17,7 +17,7 @@ const { columns, caption, id, rows = [], note } = Astro.props;
     </table>
   </div>
   {note && <p class="empty">{note}</p>}
-  <p data-result role="status" aria-live="polite">{rows.length} template rows. Awaiting verification.</p>
+  <p data-result role="status" aria-live="polite">{rows.length}{isTemplate ? ' template rows. Awaiting verification.' : ' rows.'}</p>
   <noscript>The table remains readable without JavaScript; filtering requires JavaScript.</noscript>
 </div>
 <script>
@@ -26,6 +26,7 @@ const { columns, caption, id, rows = [], note } = Astro.props;
     const query = container.querySelector<HTMLInputElement>('[data-query]')!;
     const result = container.querySelector<HTMLElement>('[data-result]')!;
     const rows = Array.from(container.querySelectorAll<HTMLTableRowElement>('tbody tr'));
+    const isTemplate = container.dataset.isTemplate !== 'false';
     const filter = () => {
       const search = query.value.trim().toLocaleLowerCase();
       let count = 0;
@@ -33,7 +34,7 @@ const { columns, caption, id, rows = [], note } = Astro.props;
         row.hidden = !(row.cells[Number(column.value)]?.textContent ?? '').toLocaleLowerCase().includes(search);
         if (!row.hidden) count++;
       });
-      result.textContent = `${count} of ${rows.length} template rows shown. Awaiting verification.`;
+      result.textContent = `${count} of ${rows.length}${isTemplate ? ' template rows shown. Awaiting verification.' : ' rows shown.'}`;
     };
     column.addEventListener('change', filter);
     query.addEventListener('input', filter);
