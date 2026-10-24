@@ -1,0 +1,10 @@
+---
+import GuideLayout from '../layouts/GuideLayout.astro';
+import EmptyTable from '../components/EmptyTable.astro';
+import FilterableTable from '../components/FilterableTable.astro';
+---
+<GuideLayout title="MW4 DMZ FOB Unlocks">
+<p slot="definition">This page reserves space for MW4 DMZ FOB Unlocks. All entries await reliable sources; no game details have been verified in this scaffold.</p>
+<p slot="how-to">Select a column and type text to filter matching rows. With no entries, the result count stays at zero. Future rows retain their source order; check Status and Sources before use.</p>
+<div slot="body"><FilterableTable columns={["Site / unlock", "Level or requirement", "What it enables", "Status", "Last verified", "Sources"]} caption="MW4 DMZ FOB Unlocks" id="mw4-dmz-fob" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li></ul></div>
+</GuideLayout>

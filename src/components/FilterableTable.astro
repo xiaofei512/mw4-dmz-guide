@@ -1,0 +1,37 @@
+---
+interface Props { columns: string[]; caption: string; id: string }
+const { columns, caption, id } = Astro.props;
+---
+<div data-filter-table>
+  <div class="filters">
+    <label for={`${id}-column`}>Filter column</label>
+    <select id={`${id}-column`} data-column>{columns.map((column, index) => <option value={index}>{column}</option>)}</select>
+    <label for={`${id}-query`}>Filter text</label>
+    <input id={`${id}-query`} data-query type="search" placeholder="Type to filter" />
+  </div>
+  <div class="table-scroll">
+    <table><caption>{caption}</caption><thead><tr>{columns.map(column => <th scope="col">{column}</th>)}</tr></thead><tbody></tbody></table>
+  </div>
+  <p data-result role="status" aria-live="polite">0 entries. Awaiting verification.</p>
+  <noscript>The table remains readable without JavaScript; filtering requires JavaScript.</noscript>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-filter-table]').forEach(container => {
+    const column = container.querySelector<HTMLSelectElement>('[data-column]')!;
+    const query = container.querySelector<HTMLInputElement>('[data-query]')!;
+    const result = container.querySelector<HTMLElement>('[data-result]')!;
+    const rows = Array.from(container.querySelectorAll<HTMLTableRowElement>('tbody tr'));
+    const filter = () => {
+      const search = query.value.trim().toLocaleLowerCase();
+      let count = 0;
+      rows.forEach(row => {
+        row.hidden = !(row.cells[Number(column.value)]?.textContent ?? '').toLocaleLowerCase().includes(search);
+        if (!row.hidden) count++;
+      });
+      result.textContent = `${count} of ${rows.length} entries shown.${rows.length === 0 ? ' Awaiting verification.' : ''}`;
+    };
+    column.addEventListener('change', filter);
+    query.addEventListener('input', filter);
+    filter();
+  });
+</script>

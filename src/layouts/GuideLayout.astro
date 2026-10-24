@@ -1,0 +1,31 @@
+---
+import StatusLegend from '../components/StatusLegend.astro';
+import EmptyTable from '../components/EmptyTable.astro';
+import '../styles/global.css';
+interface Props { title: string }
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={`${title}: empty guide scaffold awaiting verified sources.`} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header>
+      <nav aria-label="Main navigation"><a href="/">Home</a><a href="/dmz-mw4/">DMZ guide hub</a><a href="/mw4-release/">Release</a><a href="/mw4-maps/">Maps index</a></nav>
+      <h1>{title}</h1>
+      <StatusLegend />
+    </header>
+    <main id="main">
+      <section aria-labelledby="definition"><h2 id="definition">定义 (Definition)</h2><slot name="definition" /></section>
+      <section aria-labelledby="how-to"><h2 id="how-to">怎么用 (How to use)</h2><slot name="how-to" /></section>
+      <section aria-labelledby="body"><h2 id="body">表或筛选 / Main body</h2><slot name="body" /></section>
+      <section aria-labelledby="sources"><h2 id="sources">来源与更新日期 (Sources)</h2><slot name="sources"><p>No reliable sources recorded yet. The date above marks the scaffold placeholder, not verified game information.</p><EmptyTable columns={['#', 'Source', 'Date', 'Notes']} caption="Sources and update dates" /></slot></section>
+    </main>
+    <footer><StatusLegend /></footer>
+  </body>
+</html>
