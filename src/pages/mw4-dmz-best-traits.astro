@@ -2,49 +2,301 @@
 import GuideLayout from '../layouts/GuideLayout.astro';
 import FilterableTable from '../components/FilterableTable.astro';
 
-const rows = [
+const mechanismRows = [
   [
-    "（待核）",
-    "（待核）",
-    "（留空待核）",
-    "（留空——禁止编造效果）",
-    "reported",
+    "Trait Trees",
+    "Three trees: Warfighter, Scout, Survivalist",
+    "confirmed",
     "2026-10-24",
-    ""
+    "[1]"
   ],
   [
-    "（待核）",
-    "（待核）",
-    "（留空）",
-    "（留空）",
-    "reported",
+    "Trait count",
+    "66 Traits total, spread equally across the three Trees (22 per Tree)",
+    "confirmed",
     "2026-10-24",
-    ""
+    "[1]"
+  ],
+  [
+    "Cap",
+    "A single Operator can earn up to 18 Trait Points (Onyx III Dog Tag); no more Trait Points awarded after maximizing Operator level",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Major / Minor layout",
+    "Each Tree: Six Major Traits (always visible) + 16 Minor Traits (randomized); spend first point on initial (random) Minor for that tree; branches of two (Major) and three (Minor); Traits lock in once picked",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Prestige unlock",
+    "After an Active Duty Operator earns 18 Trait Points (and is not MIA), you can Prestige that Operator",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Permanent Prestige Traits",
+    "Each Prestige grants a special random Permanent Prestige Trait tied to that Operator; Operators can earn up to three Permanent Prestige Traits",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Prestige Cash (1st)",
+    "First Prestige requires 200,000 DMZ Cash (plus gear rarity requirements stated in blog)",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Prestige Cash (2nd)",
+    "Second Prestige requires 300,000 DMZ Cash (plus higher gear rarity)",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Prestige Cash (3rd+)",
+    "Third Prestige and every Prestige thereafter: 500,000 DMZ Cash (Legendary gear requirements)",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ]
+];
+
+const rows = [
+  [
+    "Adrenaline Burst",
+    "Warfighter",
+    "",
+    "Killing an enemy resets tactical sprint.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Equipment Professional",
+    "Warfighter",
+    "",
+    "Slowly recharges equipped Lethals and Tacticals after use.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Combat Resistance",
+    "Warfighter",
+    "",
+    "Reduces damage from explosives and the effects of enemy Tacticals.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Viper Sense",
+    "Warfighter",
+    "",
+    "Conceals you from thermal optics and AI targeting systems.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Quick Fix",
+    "Warfighter",
+    "",
+    "Reduces health regeneration delay when an enemy operator or hostile is killed.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Possum",
+    "Warfighter",
+    "",
+    "Allows a Self Revive into Last Stand from death, restoring health to maximum, once per match.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Adaptive Restock",
+    "Warfighter",
+    "",
+    "Enemy hostile drop one additional item.（官方列于 Main Warfighter Traits 例表）",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Investor",
+    "Scout",
+    "",
+    "Slightly increases cash amount extracted.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Hostile Looter",
+    "Scout",
+    "",
+    "Enemy hostiles sometimes drop an Uncommon printer ingredient, with a very small chance for a Rare printer ingredient.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Container Looter",
+    "Scout",
+    "",
+    "Chance to get extra piece of loot in containers.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Thermal Padding",
+    "Scout",
+    "",
+    "Hides from UAVs and downgrades Advanced UAVs to UAV detection.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "UAV Upgrade",
+    "Scout",
+    "",
+    "Increases the range and duration of UAVs. Also upgrades them to Advanced UAVs.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Overwatch",
+    "Scout",
+    "",
+    "UAV towers you activate never expire.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Field Crafting",
+    "Scout",
+    "",
+    "Allows crafting items directly out of Common printer resources while deployed.（官方列于 Main Scout Traits 例表）",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Air Superiority",
+    "Survivalist",
+    "",
+    "Extends the duration of UAV towers and SAM sites.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Faster Revive",
+    "Survivalist",
+    "",
+    "Increases Revive speeds.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Consumable Duration",
+    "Survivalist",
+    "",
+    "Increases the duration of consumables.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Impact Smokes",
+    "Survivalist",
+    "",
+    "Releases smoke when downed.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Free Revive",
+    "Survivalist",
+    "",
+    "Automatically repairs your first Wound.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Numb the Pain",
+    "Survivalist",
+    "",
+    "Applies Painkillers and Smelling Salts effects on revives.",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
+  ],
+  [
+    "Die Hard",
+    "Survivalist",
+    "",
+    "Approaching an exfil while in Last Stand calls the exfil automatically. Also grants infinite bleed out time while in Last Stand.（官方列于 Main Survivalist Traits 例表）",
+    "confirmed",
+    "2026-10-24",
+    "[1]"
   ]
 ];
 ---
 <GuideLayout title="Best MW4 DMZ Traits" lang="zh-CN">
   <div slot="definition">
-    <p>本表收录 MW4 DMZ <strong>特质 / 天赋（Traits）</strong>：所属树、点数消耗（待核）、效果摘要与核实状态。</p>
-    <p>标题含 “Best” 仅对齐搜索意图；<strong>不做无来源的「强度排名」</strong>。官方落地页存在 Traits 向版块（模块存在性可核对）。</p>
+    <p>本表收录 MW4 DMZ <strong>特质 / 天赋（Traits）</strong>：所属树、效果摘要与核实状态。</p>
+    <p>标题含 “Best” <strong>仅对齐搜索意图</strong>；官方<strong>不提供</strong>强度排名——本页禁止写成官方「最佳」排序。</p>
+    <p>结构与 Major（Main）Traits 名称/效果以官方 FOB Part 2「The Three Trait Trees / Example Traits」为准。</p>
+    <p><strong>Cost / points：</strong>官方此文未给出完整点数梯子，整列留空（见下表注）。</p>
   </div>
   <div slot="how-to">
     <ol>
-      <li>按 <strong>Tree</strong> 筛选（实现时挂上）；不要把 <code>reported</code> 效果写成攻略定论。</li>
-      <li><strong>Cost / points</strong> 列允许长期为空，直到游戏内或官方给出可引用数字。</li>
-      <li>「怎么搭配」类建议若无一手依据，整段不写或标 <code>reported</code>。</li>
+      <li>按 <strong>Tree</strong> 筛选；<code>confirmed</code> 效果句贴近官方措辞。</li>
+      <li><strong>Cost / points</strong> 列本批整列空着（无官方全表）；不得把媒体梯子写成 <code>confirmed</code>。</li>
+      <li>Minor Traits 随机可见；未在官方 Example 中点名的 Minor 不进本批 <code>confirmed</code> 表（Adaptive Restock / Field Crafting / Die Hard 见下：官方列在对应 Main 标题下，按正文一并 <code>confirmed</code>）。</li>
+      <li>「怎么搭配 / meta」若无一手依据，整段不写或标 <code>reported</code>。</li>
       <li>回 <a href="/dmz-mw4/">/dmz-mw4</a>。</li>
     </ol>
   </div>
   <div slot="body">
-    <p><strong>筛选项（产品实现时挂上）：</strong> Trait · Tree · Status</p>
+    <h3>树与结构（机制）</h3>
+    <div class="table-scroll">
+      <table>
+        <caption>MW4 DMZ Traits — 9 行 confirmed 树与结构机制</caption>
+        <thead><tr>{["Topic", "Summary", "Status", "Last verified", "Sources"].map(column => <th scope="col">{column}</th>)}</tr></thead>
+        <tbody>{mechanismRows.map(row => <tr>{row.map(cell => <td>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+    <h3>Major (Main) Traits 表</h3>
+    <p><strong>筛选项：</strong> Trait · Tree · Status</p>
     <FilterableTable
       columns={["Trait", "Tree", "Cost / points", "Effect summary", "Status", "Last verified", "Sources"]}
-      caption="Best MW4 DMZ Traits — 待核行模板，无已核游戏数据"
+      caption="MW4 DMZ Major (Main) Traits — 21 行 confirmed 名称与效果"
       id="mw4-dmz-best-traits"
       rows={rows}
-      note={"待核行仅作模板；点数与效果逐条待核，不做无来源的强度排名。"}
+      isTemplate={false}
+      note={"Cost / points：无官方全表，整列留空（禁止填媒体梯子）。"}
     />
+    <p>官方正文写 “six Main (visible) Traits … and one initially-awarded random Minor Trait”，但三树例表均在 <strong>Main … Traits</strong> 标题下各列 7 项。本批对例表中出现的全部名称与效果句标 <code>confirmed</code>；若后续官方澄清第 7 项为 Minor 示例，可将 Adaptive Restock / Field Crafting / Die Hard 调整为「例示 Minor」，保留效果句 <code>confirmed</code> 并调整 Tree 分类注释。</p>
+    <p><strong>禁止：</strong>「最佳」排名、meta build 定论、未官方点名的 Minor 全表、媒体 Cost 梯子。</p>
   </div>
   <div slot="sources">
     <div class="table-scroll">
@@ -52,11 +304,11 @@ const rows = [
         <caption>Sources and update dates</caption>
         <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
         <tbody>
-          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>页含 Traits 相关版块（结构 <code>confirmed</code>）；点数与效果逐条待核</td></tr>
-          <tr id="source-2"><td>2</td><td>（待补）游戏内特质界面 / 官方说明</td><td>—</td><td></td></tr>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide">DMZ Deep Dive, Part 2: FOB Full Intel Guide</a></td><td>October 09, 2026；核验 2026-10-24</td><td>三树、66/22/18、Main Trait 名与效果、Prestige 规则与 Cash</td></tr>
+          <tr id="source-2"><td>2</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-progression-prestige">Ready for Launch: Progression and Prestige</a></td><td>October 19, 2026；核验 2026-10-24</td><td>DMZ 1–70 口径对照；不替代 Part 2 的 Trait 例表</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Sources: <a href="#source-1">[1]</a></p>
+    <p>Sources: <a href="#source-1">[1]</a><a href="#source-2">[2]</a></p>
   </div>
 </GuideLayout>
