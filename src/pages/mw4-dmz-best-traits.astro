@@ -1,0 +1,10 @@
+---
+import GuideLayout from '../layouts/GuideLayout.astro';
+import EmptyTable from '../components/EmptyTable.astro';
+import FilterableTable from '../components/FilterableTable.astro';
+---
+<GuideLayout title="Best MW4 DMZ Traits">
+<p slot="definition">This page reserves space for Best MW4 DMZ Traits. All entries await reliable sources; no game details have been verified in this scaffold.</p>
+<p slot="how-to">Select a column and type text to filter matching rows. With no entries, the result count stays at zero. Future rows retain their source order; check Status and Sources before use. Select Tree to filter by trait tree once verified entries exist.</p>
+<div slot="body"><FilterableTable columns={["Trait", "Tree", "Cost / points", "Effect summary", "Status", "Last verified", "Sources"]} caption="Best MW4 DMZ Traits" id="mw4-dmz-best-traits" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li></ul></div>
+</GuideLayout>

@@ -1,0 +1,10 @@
+---
+import GuideLayout from '../layouts/GuideLayout.astro';
+import EmptyTable from '../components/EmptyTable.astro';
+import FilterableTable from '../components/FilterableTable.astro';
+---
+<GuideLayout title="MW4 Stranded Codes">
+<p slot="definition">This page reserves space for MW4 Stranded Codes. All entries await reliable sources; no game details have been verified in this scaffold. Code usability is not guaranteed. Unverified codes will be marked reported or omitted.</p>
+<p slot="how-to">Select a column and type text to filter matching rows. With no entries, the result count stays at zero. Future rows retain their source order; check Status and Sources before use.</p>
+<div slot="body"><FilterableTable columns={["Code / label", "Where used", "Effect summary", "Status", "Last verified", "Sources"]} caption="MW4 Stranded Codes" id="mw4-stranded-codes" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li></ul></div>
+</GuideLayout>

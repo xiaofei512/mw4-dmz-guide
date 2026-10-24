@@ -1,0 +1,9 @@
+---
+import GuideLayout from '../layouts/GuideLayout.astro';
+import EmptyTable from '../components/EmptyTable.astro';
+---
+<GuideLayout title="MW4 Patch Notes">
+<p slot="definition">This page reserves space for MW4 Patch Notes. All entries await reliable sources; no game details have been verified in this scaffold.</p>
+<p slot="how-to">Future sourced patches will appear newest first. Check each status and official link; this index does not promise daily updates.</p>
+<div slot="body"><EmptyTable columns={["Date", "Title / version", "Summary", "Status", "Official link", "Last verified"]} caption="Patch list \u2014 no entries recorded" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li></ul></div>
+</GuideLayout>

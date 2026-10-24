@@ -1,0 +1,9 @@
+---
+import GuideLayout from '../layouts/GuideLayout.astro';
+import EmptyTable from '../components/EmptyTable.astro';
+---
+<GuideLayout title="MW4 Campaign Early Access">
+<p slot="definition">This page reserves space for MW4 Campaign Early Access. All entries await reliable sources; no game details have been verified in this scaffold.</p>
+<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
+<div slot="body"><h3>Flow overview</h3><p>Opening, objectives and completion details await verification. No gameplay steps are recorded yet.</p><EmptyTable columns={["Topic", "Summary", "Status"]} caption="Overview topics" /><h3>FAQ</h3><EmptyTable columns={["Q", "A", "Status", "Last verified"]} caption="Questions and answers awaiting sources" /><h3>Related guides</h3><ul class="cards"><li><a href="/mw4-campaign/">MW4 Campaign Overview</a></li><li><a href="/early-access-mw4/">MW4 Early Access</a></li></ul></div>
+</GuideLayout>

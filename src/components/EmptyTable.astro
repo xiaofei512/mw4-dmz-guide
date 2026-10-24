@@ -1,0 +1,12 @@
+---
+interface Props { columns: string[]; caption: string }
+const { columns, caption } = Astro.props;
+---
+<div class="table-scroll">
+  <table>
+    <caption>{caption}</caption>
+    <thead><tr>{columns.map(column => <th scope="col">{column}</th>)}</tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+<p class="empty">No verified entries yet. Cells await source verification.</p>
