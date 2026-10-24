@@ -1,9 +1,69 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
+import FilterableTable from '../components/FilterableTable.astro';
+
+const detailRows = [
+  ['Region / grid (approx.)', '', '—（空）', '2026-10-24', '[1]'],
+  ['Map context', 'Hajin Exclusion Zone; Police Stations are marked as key buildings on the Tac-Map.', 'confirmed', '2026-10-24', '[1]'],
+  ['Identification', 'Blue color scheme makes Police Stations easy to identify.', 'confirmed', '2026-10-24', '[1]'],
+  ['Threat / notes', 'Expect hostile resistance. No official per-station threat rating is supplied; numerical ratings remain empty.', 'confirmed（有敌对；单站威胁值不填）', '2026-10-24', '[1]'],
+  ['Facilities', 'Multiple rooms to clear; depending on layout, roof access for overwatch. Search for military gear and a locked Armory.', 'confirmed', '2026-10-24', '[1]']
+];
+const keyRows = [
+  [
+    'Police Station Key',
+    'Named in the DMZ Progression Appendix (Recon Equipment Kit). Activision does not identify which station or door; Opens / Location remain empty on this page.',
+    'confirmed（Key name only）',
+    '2026-10-24',
+    '[3]'
+  ]
+];
 ---
-<GuideLayout title="MW4 DMZ Police Station">
-<p slot="definition">This page reserves space for MW4 DMZ Police Station. All entries await reliable sources; no game details have been verified in this scaffold. Region, approximate grid, threats and facilities await verification.</p>
-<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
-<div slot="body"><h3>Location details</h3><EmptyTable columns={["Field", "Value", "Status"]} caption="Region / grid, threats and facilities" /><h3>Related keys</h3><EmptyTable columns={["Key", "Use here", "Status", "Sources"]} caption="Keys associated with this location" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li><li><a href="/mw4-dmz-keys/">MW4 DMZ Keys List</a></li><li><a href="/mw4-maps/">MW4 Maps Index</a></li></ul></div>
+<GuideLayout title="MW4 DMZ Police Station" lang="zh-CN">
+  <div slot="definition">
+    <p><strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time>（Asia/Shanghai）</p>
+    <p>本页说明 Hajin DMZ 中的 <strong>Police Stations（警局）</strong>：官方确认的设施 / 机制、进入时的威胁提示与关联钥匙。</p>
+    <p>官方 Hajin Deep Dive：警局为<strong>蓝色建筑</strong>，有敌对、多房间，可搜军用物资，并有 <strong>locked Armory</strong>；Tac-Map 将其标为 key buildings。</p>
+    <p>Activision Progression 附录点名 <strong>Police Station Key</strong>（Recon Equipment Kit），未指定哪一座警局或哪扇门。Region / Grid 留空。</p>
+  </div>
+  <ol slot="how-to">
+    <li>先看 Facilities 与 <code>Status</code>；Region / grid 因缺少官方逐站坐标表而留空。</li>
+    <li>关联钥匙的 <code>confirmed</code> 仅确认名称；具体 Use here / Opens 不作门址定论。</li>
+    <li>可按 Field、Key 或 Status 筛选下表。</li>
+    <li>相关：<a href="/mw4-dmz-keys/">/mw4-dmz-keys/</a>、<a href="/mw4-maps/">/mw4-maps/</a>；回 <a href="/dmz-mw4/">/dmz-mw4/</a>。</li>
+  </ol>
+  <div slot="body">
+    <h3>Location details / 要点</h3>
+    <FilterableTable
+      columns={['Field', 'Value', 'Status', 'Last verified', 'Sources']}
+      caption="Police Stations — Region / grid、威胁与设施"
+      id="mw4-dmz-police-station-details"
+      rows={detailRows}
+      isTemplate={false}
+      note="Last verified: 2026-10-24。Region / grid 留空：官方仅确认 Hajin 有多座警局，未给逐站坐标表；不填媒体坐标或最佳警局排名。"
+    />
+    <h3>Related keys / 关联钥匙</h3>
+    <FilterableTable
+      columns={['Key', 'Use here', 'Status', 'Last verified', 'Sources']}
+      caption="Police Station 关联钥匙 — 仅确认 Police Station Key 名称"
+      id="mw4-dmz-police-station-keys"
+      rows={keyRows}
+      isTemplate={false}
+      note="Last verified: 2026-10-24。Key name confirmed；具体警局 / 门址与 Opens 保持未填。"
+    />
+    <p>设施 / 机制见 Sources <a href="#source-1">[1]</a>；Police Station Key 名称见 <a href="#source-3">[3]</a>。</p>
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-deep-dive-hajin">DMZ Deep Dive, Part 1: Tour of Duty – Hajin</a></td><td>October 05, 2026；核验 2026-10-24</td><td>蓝色建筑、locked Armory、军用物资与威胁提示</td></tr>
+          <tr id="source-3"><td>3</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-progression-prestige">Ready for Launch: Progression and Prestige</a></td><td>October 19, 2026；核验 2026-10-24</td><td>Recon Equipment Kit 的 Police Station Key 名称</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><code>confirmed</code> · <code>reported</code> · <strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time> · Sources: <a href="#source-1">[1]</a><a href="#source-3">[3]</a></p>
+  </div>
 </GuideLayout>
