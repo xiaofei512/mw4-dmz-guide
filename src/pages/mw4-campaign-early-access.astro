@@ -4,7 +4,7 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 <GuideLayout lang="zh-CN" title="MW4 Campaign Early Access">
 <div slot="definition">
 <p>本页专门回答「<strong>战役是否 / 如何进入 Early Access</strong>」：在 A4（战役）与 A6（EA）之间给出交叉说明与边界。<br>
-<strong>不</strong>用营销口吻承诺未证实的战役章节或时长。</p>
+<strong>不</strong>用营销口吻承诺未证实的关卡攻略细节。</p>
 </div>
 <div slot="how-to">
 <ol>
@@ -16,20 +16,22 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 <div slot="body">
 <h3>流程概览</h3>
 <ol>
-<li><strong>确认 EA 资格：</strong> 按 <a href="/early-access-mw4/">/early-access-mw4</a> 对照官方/商店说明。</li>
-<li><strong>进入战役：</strong> 若 EA 含战役，从模式菜单进入 Campaign（菜单文案待核）。</li>
-<li><strong>进度边界：</strong> 进度是否保留到正式版等 —— 未证实前标 <code>reported</code>，不写承诺。</li>
+<li><strong>确认 EA 资格：</strong> 数字预购/预购 Standard Digital Edition 或 Vault Edition（见 <a href="/early-access-mw4/">/early-access-mw4</a>）。</li>
+<li><strong>进入战役：</strong> 官方称可访问 <strong>entire Campaign</strong>；自 <strong>October 16</strong> 起至 <strong>October 23</strong> 正式发售。 <code>confirmed</code> · Sources <a href="#source-3">[3]</a><a href="#source-5">[5]</a></li>
+<li><strong>与 DMZ EA 衔接：</strong> 官方建议用战役 EA 熟悉剧情，再于 <strong>October 20</strong> 进入 DMZ EA，并于 <strong>October 23</strong> 迎接全量发售。 <code>confirmed</code> · Sources <a href="#source-3">[3]</a></li>
+<li><strong>进度 / 奖励：</strong> 战役完成奖励在正式发售后可用于 Multiplayer 与 DMZ。 <code>confirmed</code> · Sources <a href="#source-3">[3]</a>。其他「存档是否永久保留到某子系统」若超出该句 → 保持 <code>reported</code>/不写。</li>
 </ol>
 <h3>要点表</h3>
 <div class="table-scroll">
 <table>
-<caption>要点表（草稿，待核）</caption>
+<caption>战役 Early Access 要点表</caption>
 <thead>
 <tr>
 <th scope="col">Topic</th>
 <th scope="col">Summary</th>
 <th scope="col">Status</th>
 <th scope="col">Last verified</th>
+<th scope="col">Sources</th>
 </tr>
 </thead>
 <tbody>
@@ -38,18 +40,42 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 <td>战役机制与模式边界 → <a href="/mw4-campaign/">/mw4-campaign</a></td>
 <td>confirmed（站内）</td>
 <td>2026-10-24</td>
+<td>—</td>
 </tr>
 <tr>
 <td>Cross-link A6</td>
 <td>EA 资格/时间/内容三栏 → <a href="/early-access-mw4/">/early-access-mw4</a></td>
 <td>confirmed（站内）</td>
 <td>2026-10-24</td>
+<td>—</td>
 </tr>
 <tr>
 <td>Campaign in EA?</td>
-<td>是否包含、含多少章节：待官方/游戏内核对；草稿不填章节名</td>
-<td>reported（待核）</td>
+<td>是：<strong>entire Campaign</strong>（数字预购）</td>
+<td>confirmed</td>
 <td>2026-10-24</td>
+<td><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-5">[5]</a></td>
+</tr>
+<tr>
+<td>Mission count</td>
+<td><strong>sixteen missions</strong>（官方 Campaign EA 文）</td>
+<td>confirmed</td>
+<td>2026-10-24</td>
+<td><a href="#source-3">[3]</a></td>
+</tr>
+<tr>
+<td>Window</td>
+<td>Oct 16 → 直至 Oct 23 正式发售</td>
+<td>confirmed（日历日）</td>
+<td>2026-10-24</td>
+<td><a href="#source-3">[3]</a><a href="#source-5">[5]</a></td>
+</tr>
+<tr>
+<td>Rewards into MP/DMZ</td>
+<td>完成奖励在全量发售后可用于 MP 与 DMZ</td>
+<td>confirmed</td>
+<td>2026-10-24</td>
+<td><a href="#source-3">[3]</a></td>
 </tr>
 </tbody>
 </table>
@@ -57,33 +83,44 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 <h3>FAQ</h3>
 <div class="table-scroll">
 <table>
-<caption>FAQ（草稿，待核）</caption>
+<caption>战役 × Early Access FAQ</caption>
 <thead>
 <tr>
 <th scope="col">Q</th>
 <th scope="col">A</th>
 <th scope="col">Status</th>
 <th scope="col">Last verified</th>
+<th scope="col">Sources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Is the full Campaign available in Early Access?</td>
-<td>未核验前不回答「是/否」定论；核对官方后更新本行。临时：见 A6 内容边界三栏。</td>
-<td>reported（待核）</td>
+<td>是（数字预购/预购）：官方写明可访问 <strong>entire Campaign</strong> / <strong>sixteen missions</strong>。</td>
+<td>confirmed</td>
 <td>2026-10-24</td>
+<td><a href="#source-3">[3]</a><a href="#source-5">[5]</a></td>
 </tr>
 <tr>
-<td>Does Campaign EA progress carry over?</td>
-<td>未证实；标 <code>reported</code> 直至官方说明。</td>
-<td>reported（待核）</td>
+<td>Does Campaign EA progress / rewards carry over?</td>
+<td>官方：战役<strong>完成奖励</strong>在正式发售后可用于 Multiplayer 与 DMZ。更细的「存档字段是否全部永久保留」未在该句钉死 → 不额外承诺。</td>
+<td>confirmed（奖励句）/ 其余不扩展</td>
 <td>2026-10-24</td>
+<td><a href="#source-3">[3]</a></td>
+</tr>
+<tr>
+<td>When does Campaign EA start relative to DMZ EA?</td>
+<td>战役 EA <strong>October 16</strong>；DMZ EA <strong>October 20</strong>；全量 <strong>October 23</strong>。</td>
+<td>confirmed</td>
+<td>2026-10-24</td>
+<td><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-5">[5]</a></td>
 </tr>
 <tr>
 <td>Where is general EA info?</td>
 <td><a href="/early-access-mw4/">/early-access-mw4</a></td>
 <td>confirmed（站内）</td>
 <td>2026-10-24</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
@@ -102,17 +139,23 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 </tr>
 </thead>
 <tbody>
-<tr id="source-1">
-<td>1</td>
-<td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td>
-<td>2026-10-24</td>
-<td>EA 相关版块；战役专述待补官方链</td>
-</tr>
 <tr id="source-2">
 <td>2</td>
-<td>站内 <a href="/mw4-campaign/">/mw4-campaign</a> · <a href="/early-access-mw4/">/early-access-mw4</a></td>
+<td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide">DMZ Deep Dive Part 2: FOB Full Intel Guide</a></td>
 <td>2026-10-24</td>
-<td>交叉口径</td>
+<td>数字预购资格、Campaign / DMZ EA 日历日</td>
+</tr>
+<tr id="source-3">
+<td>3</td>
+<td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-campaign-early-access-live-now">Campaign Early Access Now Live</a></td>
+<td>2026-10-24</td>
+<td>entire Campaign / sixteen missions；EA 窗口与完成奖励</td>
+</tr>
+<tr id="source-5">
+<td>5</td>
+<td><a href="https://support.activision.com/modern-warfare-4/articles/modern-warfare-4-editions">Activision Support · MW4 Editions</a></td>
+<td>2026-10-24</td>
+<td>数字版 EA 资格与日历日；时区/停机脚注</td>
 </tr>
 </tbody>
 </table>

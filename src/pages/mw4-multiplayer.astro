@@ -4,7 +4,7 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 <GuideLayout lang="zh-CN" title="MW4 Multiplayer Overview">
 <div slot="definition">
 <p>本页概述 MW4 <strong>多人（Multiplayer）</strong> 模式：与 DMZ、战役的边界，以及读者可从本站跳到哪些相关页。<br>
-<strong>不</strong>做地图全图工具；地图索引见未来的 <code>/mw4-maps</code>（P1）。<strong>不</strong>编造模式列表中的未核玩法名或数值。</p>
+<strong>不</strong>做地图全图工具；地图索引见未来的 <code>/mw4-maps</code>（P1）。<strong>不</strong>编造未核玩法名或数值排行。</p>
 </div>
 <div slot="how-to">
 <ol>
@@ -16,40 +16,72 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 <div slot="body">
 <h3>流程概览</h3>
 <ol>
-<li><strong>开局：</strong> 从多人菜单选择模式/清单（具体模式名待官方或游戏内核对）。</li>
-<li><strong>对局：</strong> 标准多人匹配与对局流程（规则细节、计分方式待核，不在此填数值）。</li>
-<li><strong>结束：</strong> 结算与解锁进度（若与 DMZ 解锁互通，标 <code>reported</code> 直至一手确认）。</li>
+<li><strong>开局：</strong> 从多人菜单选择模式/清单（具体 playlist 名本批不填未核清单）。</li>
+<li><strong>对局：</strong> 标准多人匹配与对局；武器等级等可与 DMZ <strong>共享</strong>（见要点表）。</li>
+<li><strong>结束：</strong> Career 进度含 Multiplayer Level Unlocks（官方 <strong>1–55</strong>）等；细节见 <a href="#source-4">Ready for Launch</a> 文，本页不抄全表。</li>
 </ol>
 <h3>要点表</h3>
 <div class="table-scroll">
 <table>
-<caption>要点表（草稿，待核）</caption>
+<caption>Multiplayer 要点表</caption>
 <thead>
 <tr>
 <th scope="col">Topic</th>
 <th scope="col">Summary</th>
 <th scope="col">Status</th>
 <th scope="col">Last verified</th>
+<th scope="col">Sources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Mode boundary</td>
-<td>Multiplayer ≠ DMZ extraction 玩法；钥匙/FOB/特质表在 B-P0</td>
-<td>confirmed（站内边界）</td>
+<td>Multiplayer ≠ DMZ extraction；钥匙/FOB/特质表在 B-P0</td>
+<td>confirmed</td>
 <td>2026-10-24</td>
+<td><a href="#source-1">[1]</a><a href="#source-4">[4]</a></td>
+</tr>
+<tr>
+<td>MP progression track</td>
+<td>Official: Multiplayer Level Unlocks <strong>Levels 1–55</strong>（与 DMZ 1–70 轨道分离）</td>
+<td>confirmed</td>
+<td>2026-10-24</td>
+<td><a href="#source-4">[4]</a></td>
+</tr>
+<tr>
+<td>Shared weapon XP</td>
+<td>武器进度在 Multiplayer 与 DMZ 间共享计入；Warzone 自 Season 1 起纳入相关叙述</td>
+<td>confirmed</td>
+<td>2026-10-24</td>
+<td><a href="#source-4">[4]</a></td>
+</tr>
+<tr>
+<td>DMZ XP vs MP XP</td>
+<td>DMZ XP 计入总体 1–55 Player Progression；<strong>MP / Warzone XP 不计入 DMZ Level</strong></td>
+<td>confirmed</td>
+<td>2026-10-24</td>
+<td><a href="#source-4">[4]</a></td>
 </tr>
 <tr>
 <td>Maps</td>
 <td>本页不嵌全图；索引页 <code>/mw4-maps</code> 为 P1</td>
 <td>confirmed（站内策略）</td>
 <td>2026-10-24</td>
+<td>—</td>
 </tr>
 <tr>
 <td>Playlist names</td>
-<td>具体清单名留空待核</td>
-<td>reported</td>
+<td>具体清单名本批留空</td>
+<td>reported / 空</td>
 <td>2026-10-24</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Online requirement</td>
+<td>Activision Support：MP（含私人局）与 DMZ 需持续联网（纹理流送）</td>
+<td>confirmed</td>
+<td>2026-10-24</td>
+<td><a href="#source-5">[5]</a></td>
 </tr>
 </tbody>
 </table>
@@ -57,27 +89,37 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 <h3>FAQ</h3>
 <div class="table-scroll">
 <table>
-<caption>FAQ（草稿，待核）</caption>
+<caption>Multiplayer FAQ</caption>
 <thead>
 <tr>
 <th scope="col">Q</th>
 <th scope="col">A</th>
 <th scope="col">Status</th>
 <th scope="col">Last verified</th>
+<th scope="col">Sources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Is DMZ part of Multiplayer?</td>
-<td>DMZ 为独立 extraction 向体验（以官方命名为准）；查询入口见 <a href="/dmz-mw4/">/dmz-mw4</a>。</td>
-<td>confirmed（导流策略）/ 官方措辞待核</td>
+<td>DMZ 为独立 extraction 向体验与独立 <strong>1–70</strong> 进度轨；查询入口见 <a href="/dmz-mw4/">/dmz-mw4</a>。武器等级可与 MP 共享。</td>
+<td>confirmed</td>
 <td>2026-10-24</td>
+<td><a href="#source-1">[1]</a><a href="#source-4">[4]</a></td>
 </tr>
 <tr>
 <td>Where are map details?</td>
 <td>地图索引页（P1）<code>/mw4-maps</code>；本批正文不含。</td>
 <td>confirmed（站内规划）</td>
 <td>2026-10-24</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Do I need internet for Multiplayer?</td>
+<td>官方 Support：是——MP（含 Private Matches）与 DMZ 需要持续互联网连接。</td>
+<td>confirmed</td>
+<td>2026-10-24</td>
+<td><a href="#source-5">[5]</a></td>
 </tr>
 </tbody>
 </table>
@@ -100,13 +142,19 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 <td>1</td>
 <td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td>
 <td>2026-10-24</td>
-<td>模式命名上下文；多人专页 URL 待补</td>
+<td>DMZ 模式定义与 Multiplayer 边界</td>
 </tr>
-<tr id="source-2">
-<td>2</td>
-<td>（待补）官方 Multiplayer 说明</td>
-<td>—</td>
-<td></td>
+<tr id="source-4">
+<td>4</td>
+<td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-progression-prestige">Ready for Launch: Progression and Prestige</a></td>
+<td>2026-10-24</td>
+<td>MP 1–55 / DMZ 1–70；共享武器 XP 与 Player Progression 边界</td>
+</tr>
+<tr id="source-5">
+<td>5</td>
+<td><a href="https://support.activision.com/modern-warfare-4/articles/modern-warfare-4-editions">Activision Support · MW4 Editions</a></td>
+<td>2026-10-24</td>
+<td>MP（含私人局）与 DMZ 持续联网要求</td>
 </tr>
 </tbody>
 </table>

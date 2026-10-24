@@ -3,46 +3,54 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 ---
 <GuideLayout title="MW4 on Steam" lang="zh-CN">
   <div slot="definition">
-    <p>本页说明如何在 <strong>Steam</strong>（及其他常见平台入口）获取 MW4，并指向 Early Access 相关说明。</p>
-    <p>价格、折扣、地区锁与 SKU <strong>一律以商店页实时展示为准</strong>；本站不写价格承诺。</p>
+    <p>本页说明如何在 <strong>Steam</strong>（及其他官方列出的平台入口）获取 MW4，并指向 Early Access 相关说明。</p>
+    <p>价格、折扣、地区锁与 SKU <strong>一律以商店页实时展示为准</strong>；本站<strong>不写价格</strong>、<strong>不单独编造/展示 Steam AppID 数字栏</strong>（仅外链商店页）。</p>
   </div>
   <ol slot="how-to">
-    <li>按下表选平台 → 跳官方或商店页（编码落地时挂外链）。</li>
+    <li>按下表选平台 → 跳官方或商店页。</li>
     <li>EA 资格与内容边界 → <a href="/early-access-mw4/">/early-access-mw4/</a>。</li>
     <li>发售时间线 → <a href="/mw4-release/">/mw4-release/</a>；回导览 <a href="/dmz-mw4/">/dmz-mw4/</a>。</li>
   </ol>
   <div slot="body">
     <div class="table-scroll">
       <table>
-        <caption>平台与购买入口（草稿，链接待核）</caption>
-        <thead><tr><th scope="col">Platform</th><th scope="col">How to get MW4</th><th scope="col">Notes</th><th scope="col">Status</th><th scope="col">Last verified</th></tr></thead>
+        <caption>平台与购买入口</caption>
+        <thead><tr><th scope="col">Platform</th><th scope="col">How to get MW4</th><th scope="col">Notes</th><th scope="col">Status</th><th scope="col">Last verified</th><th scope="col">Sources</th></tr></thead>
         <tbody>
-          <tr><td>Steam</td><td>打开 Steam 上的官方 MW4 商店页（URL 待核后填）</td><td>不编造 AppID / 价格 / 捆绑包名</td><td>reported（链接待核）</td><td>2026-10-24</td></tr>
-          <tr><td>官方汇入口</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">callofduty.com · MW4 DMZ</a> 购买/平台区</td><td>以页上购买区为准</td><td>confirmed（入口页存在）</td><td>2026-10-24</td></tr>
-          <tr><td>其他主机商店</td><td>（待核：PlayStation / Xbox 等商店链）</td><td>本批不展开未核平台细节</td><td>reported</td><td>2026-10-24</td></tr>
+          <tr><td>Steam</td><td>打开 <a href="https://store.steampowered.com/app/4435490/Call_of_Duty_Modern_Warfare_4/">Steam 上的 Call of Duty: Modern Warfare 4 商店页</a></td><td>Activision 明确列出 Steam 为 PC 预购渠道之一；价格以商店为准；<strong>不</strong>在站内写 AppID/价格栏</td><td>confirmed（入口存在 + 官方列名 Steam）</td><td>2026-10-24</td><td><a href="#source-5">[5]</a><a href="#source-7">[7]</a></td></tr>
+          <tr><td>Battle.net</td><td>经 Blizzard / Call of Duty PC 商店预购（以官方购买区为准）</td><td>与 Steam 同属官方列出的 PC 渠道</td><td>confirmed（渠道列名）</td><td>2026-10-24</td><td><a href="#source-5">[5]</a></td></tr>
+          <tr><td>PlayStation 5</td><td>平台商店预购（以 PS Store 为准）</td><td>官方 Editions 文列出</td><td>confirmed（渠道列名）</td><td>2026-10-24</td><td><a href="#source-5">[5]</a></td></tr>
+          <tr><td>Xbox Series X|S / Xbox on PC</td><td>Xbox / Microsoft Store 预购</td><td>官方列出；含 Play Anywhere 说明见 Support 文</td><td>confirmed（渠道列名）</td><td>2026-10-24</td><td><a href="#source-5">[5]</a><a href="#source-6">[6]</a></td></tr>
+          <tr><td>Nintendo Switch 2</td><td>平台商店预购（以官方/商店为准）</td><td>官方列出</td><td>confirmed（渠道列名）</td><td>2026-10-24</td><td><a href="#source-5">[5]</a></td></tr>
+          <tr><td>官方汇入口</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">callofduty.com · MW4 DMZ</a> 购买/平台区</td><td>以页上购买区为准</td><td>confirmed</td><td>2026-10-24</td><td><a href="#source-1">[1]</a></td></tr>
         </tbody>
       </table>
     </div>
     <h3>FAQ</h3>
     <div class="table-scroll">
       <table>
-        <caption>Steam / 平台购买 FAQ（草稿，待核）</caption>
-        <thead><tr><th scope="col">Q</th><th scope="col">A</th><th scope="col">Status</th><th scope="col">Last verified</th></tr></thead>
+        <caption>Steam / 平台购买 FAQ</caption>
+        <thead><tr><th scope="col">Q</th><th scope="col">A</th><th scope="col">Status</th><th scope="col">Last verified</th><th scope="col">Sources</th></tr></thead>
         <tbody>
-          <tr><td>Can I get MW4 on Steam?</td><td>以 Steam 与官方购买区是否上架为准；上架后把商店链写入上表并改 <code>confirmed</code>。</td><td>reported（待核）</td><td>2026-10-24</td></tr>
-          <tr><td>Does Steam purchase include Early Access?</td><td>EA 是否含在特定 SKU/版本中，以商店页与 <a href="/early-access-mw4/">/early-access-mw4/</a> 边界小节为准；此处不承诺。</td><td>reported（待核）</td><td>2026-10-24</td></tr>
-          <tr><td>Will this page list prices?</td><td>否。价格易变，请以商店页为准。</td><td>confirmed（站内策略）</td><td>2026-10-24</td></tr>
+          <tr><td>Can I get MW4 on Steam?</td><td>可以。Activision Editions 文写明 PC 玩家可在 <strong>Battle.net 与 Steam</strong> 预购；商店页外链见上表。</td><td>confirmed</td><td>2026-10-24</td><td><a href="#source-5">[5]</a><a href="#source-7">[7]</a></td></tr>
+          <tr><td>Does Steam purchase include Early Access?</td><td>官方：数字预购/预购 <strong>Standard Digital Edition 或 Vault Edition</strong> 含 Campaign EA（自 Oct 16）与 DMZ EA（自 Oct 20），并列出平台含 <strong>Steam</strong>。具体 SKU 以商店页为准。</td><td>confirmed</td><td>2026-10-24</td><td><a href="#source-2">[2]</a><a href="#source-3">[3]</a><a href="#source-5">[5]</a></td></tr>
+          <tr><td>Will this page list prices?</td><td>否。价格易变，请以商店页为准。</td><td>confirmed（站内策略）</td><td>2026-10-24</td><td>—</td></tr>
+          <tr><td>Will this page list a Steam AppID field?</td><td>否。本站不设 AppID 数字栏；需要购买时直接打开上方 Steam 商店外链。</td><td>confirmed（站内策略）</td><td>2026-10-24</td><td>—</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div slot="sources" class="table-scroll">
     <table>
-      <caption>Sources · 来源与更新日期（草稿，待核）</caption>
+      <caption>Sources · 来源与更新日期</caption>
       <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
       <tbody>
         <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>官方购买/平台汇入口</td></tr>
-        <tr id="source-2"><td>2</td><td>（待补）Steam 商店页</td><td>—</td><td>核验后填 URL</td></tr>
+        <tr id="source-2"><td>2</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide">DMZ Deep Dive Part 2: FOB Full Intel Guide</a></td><td>2026-10-24</td><td>数字预购资格、EA 日历与平台列表；时区/停机可能变动</td></tr>
+        <tr id="source-3"><td>3</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-campaign-early-access-live-now">Campaign Early Access Now Live</a></td><td>2026-10-24</td><td>Campaign EA 与数字版平台列表（含 Steam）</td></tr>
+        <tr id="source-5"><td>5</td><td><a href="https://support.activision.com/modern-warfare-4/articles/modern-warfare-4-editions">Activision Support · MW4 Editions</a></td><td>2026-10-24</td><td>PC 渠道 Battle.net 与 Steam；官方平台列表及数字版 EA 权益</td></tr>
+        <tr id="source-6"><td>6</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-intel-modern-warfare-4-launch-xbox-game-pass">COD Intel · Launch / Game Pass</a></td><td>2026-10-24</td><td>Xbox / Game Pass 发售说明</td></tr>
+        <tr id="source-7"><td>7</td><td><a href="https://store.steampowered.com/app/4435490/Call_of_Duty_Modern_Warfare_4/">Steam · Call of Duty: Modern Warfare 4 商店页</a></td><td>2026-10-24</td><td>仅作购买入口外链；价格与地区 SKU 以商店页为准</td></tr>
       </tbody>
     </table>
   </div>

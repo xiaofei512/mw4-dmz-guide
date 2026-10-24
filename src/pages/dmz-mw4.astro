@@ -3,7 +3,8 @@ import GuideLayout from '../layouts/GuideLayout.astro';
 ---
 <GuideLayout title="MW4 DMZ Guide Hub" lang="zh-CN">
   <div slot="definition">
-    <p>本页是 Modern Warfare 4（MW4）<strong>DMZ</strong> 专题导览：说明 DMZ 在本站覆盖哪些机制与查询页，并链到发售 / 平台 / 模式入口。</p>
+    <p>本页是 Modern Warfare 4（MW4）<strong>DMZ</strong> 专题导览：说明本站覆盖哪些机制与查询页，并链到发售 / 平台 / 模式入口。</p>
+    <p>官方将 DMZ 定位为 extraction 体验（Hajin 部署、战利品与撤离）；FOB 为部署前后的指挥中枢；Traits 为 Operator 长期成长。<code>confirmed</code>（口径）· Sources <a href="#source-1">[1]</a><a href="#source-2">[2]</a></p>
     <p>适用：想从「一词一页」入口进入钥匙、FOB、特质、代码等查询的读者。</p>
     <p><strong>不</strong>覆盖：可缩放全图首页、日更情报站、未独立核实的传闻定论。</p>
   </div>
@@ -16,13 +17,13 @@ import GuideLayout from '../layouts/GuideLayout.astro';
     <h3>机制与查询（B · P0）</h3>
     <div class="table-scroll">
       <table>
-        <caption>机制与查询入口；表行待核</caption>
-        <thead><tr><th scope="col">入口</th><th scope="col">Slug</th><th scope="col">一句话</th><th scope="col">Status</th></tr></thead>
+        <caption>机制与查询入口；已核内容与查询边界</caption>
+        <thead><tr><th scope="col">入口</th><th scope="col">Slug</th><th scope="col">一句话</th><th scope="col">Status</th><th scope="col">Last verified</th><th scope="col">Sources</th></tr></thead>
         <tbody>
-          <tr><td>Keys</td><td><a href="/mw4-dmz-keys/">/mw4-dmz-keys/</a></td><td>DMZ 钥匙列表与点位关联（可筛表）</td><td>页已规划；表行待核</td></tr>
-          <tr><td>FOB</td><td><a href="/mw4-dmz-fob/">/mw4-dmz-fob/</a></td><td>Forward Operating Base 解锁与用途表</td><td>页已规划；表行待核</td></tr>
-          <tr><td>Best traits</td><td><a href="/mw4-dmz-best-traits/">/mw4-dmz-best-traits/</a></td><td>特质 / 天赋树筛选表</td><td>页已规划；表行待核</td></tr>
-          <tr><td>Stranded codes</td><td><a href="/mw4-stranded-codes/">/mw4-stranded-codes/</a></td><td>Stranded 相关代码表（严格分层）</td><td>页已规划；表行待核</td></tr>
+          <tr><td>Keys</td><td><a href="/mw4-dmz-keys/">/mw4-dmz-keys/</a></td><td>DMZ 钥匙列表与点位关联（可筛表）</td><td>机制/附录钥名已有 <code>confirmed</code> 行；Location/Grid 多空；逐钥满表未做</td><td>2026-10-24</td><td><a href="#source-2">[2]</a><a href="#source-4">[4]</a><a href="#source-8">[8]</a></td></tr>
+          <tr><td>FOB</td><td><a href="/mw4-dmz-fob/">/mw4-dmz-fob/</a></td><td>Forward Operating Base 解锁与用途表</td><td>已有 <code>confirmed</code> 站点表行可用（官方 Part 2）</td><td>2026-10-24</td><td><a href="#source-2">[2]</a><a href="#source-8">[8]</a></td></tr>
+          <tr><td>Best traits</td><td><a href="/mw4-dmz-best-traits/">/mw4-dmz-best-traits/</a></td><td>特质 / 天赋树筛选表</td><td>已有 <code>confirmed</code> 结构 + Major Trait 表行可用（官方 Part 2）；Cost 列空；非官方「最佳」排名</td><td>2026-10-24</td><td><a href="#source-2">[2]</a><a href="#source-8">[8]</a></td></tr>
+          <tr><td>Stranded codes</td><td><a href="/mw4-stranded-codes/">/mw4-stranded-codes/</a></td><td>Stranded 相关代码表（严格分层）</td><td>边界说明：战役 Mission 10 键盘码 / 非 DMZ 钥 / 无官方码表 → 代码不得 <code>confirmed</code>；表保持空</td><td>2026-10-24</td><td><a href="#source-8">[8]</a></td></tr>
         </tbody>
       </table>
     </div>
@@ -59,11 +60,13 @@ import GuideLayout from '../layouts/GuideLayout.astro';
   </div>
   <div slot="sources" class="table-scroll">
     <table>
-      <caption>Sources 与更新日期（草稿，待核）</caption>
+      <caption>Sources 与更新日期</caption>
       <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th><th scope="col">Status</th></tr></thead>
       <tbody>
-        <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>官方模式说明与术语口径；结构含 EA / FOB / Traits 等版块（页上模块存在性）</td><td>confirmed（结构）；具体数值待核</td></tr>
-        <tr id="source-2"><td>2</td><td>本站词表定稿 · 页面骨架</td><td>2026-10-24</td><td>导览范围与 slug 以站内定稿为准</td><td>confirmed（站内）</td></tr>
+        <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>模式口径；EA 日历提示</td><td>confirmed</td></tr>
+        <tr id="source-2"><td>2</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide">FOB Full Intel Guide</a></td><td>2026-10-24</td><td>FOB/Traits；EA 日历</td><td>confirmed</td></tr>
+        <tr id="source-4"><td>4</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-progression-prestige">Ready for Launch: Progression and Prestige</a></td><td>2026-10-24</td><td>进度与解锁口径</td><td>confirmed</td></tr>
+        <tr id="source-8"><td>8</td><td>站内 B2/B3 填表增量（已验收）</td><td>2026-10-24</td><td>导览 Status 对齐</td><td>confirmed（站内）</td></tr>
       </tbody>
     </table>
   </div>
