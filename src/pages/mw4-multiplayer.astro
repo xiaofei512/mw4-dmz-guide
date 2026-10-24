@@ -1,9 +1,115 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
 ---
-<GuideLayout title="MW4 Multiplayer Overview">
-<p slot="definition">This page reserves space for MW4 Multiplayer Overview. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
-<div slot="body"><h3>Flow overview</h3><p>Opening, objectives and completion details await verification. No gameplay steps are recorded yet.</p><EmptyTable columns={["Topic", "Summary", "Status"]} caption="Overview topics" /><h3>FAQ</h3><EmptyTable columns={["Q", "A", "Status", "Last verified"]} caption="Questions and answers awaiting sources" /><h3>Related guides</h3><ul class="cards"><li><a href="/mw4-maps/">MW4 Maps Index</a></li></ul></div>
+<GuideLayout lang="zh-CN" title="MW4 Multiplayer Overview">
+<div slot="definition">
+<p>本页概述 MW4 <strong>多人（Multiplayer）</strong> 模式：与 DMZ、战役的边界，以及读者可从本站跳到哪些相关页。<br>
+<strong>不</strong>做地图全图工具；地图索引见未来的 <code>/mw4-maps</code>（P1）。<strong>不</strong>编造模式列表中的未核玩法名或数值。</p>
+</div>
+<div slot="how-to">
+<ol>
+<li>读流程概览了解「开局 → 对局 → 结算」层级（概括）。</li>
+<li>需要 DMZ 机制时去 <a href="/dmz-mw4/">/dmz-mw4</a>；地图索引（P1）就绪后链 <code>/mw4-maps</code>。</li>
+<li>发售/平台问题走 <a href="/mw4-release/">/mw4-release</a>、<a href="/mw4-steam/">/mw4-steam</a>。</li>
+</ol>
+</div>
+<div slot="body">
+<h3>流程概览</h3>
+<ol>
+<li><strong>开局：</strong> 从多人菜单选择模式/清单（具体模式名待官方或游戏内核对）。</li>
+<li><strong>对局：</strong> 标准多人匹配与对局流程（规则细节、计分方式待核，不在此填数值）。</li>
+<li><strong>结束：</strong> 结算与解锁进度（若与 DMZ 解锁互通，标 <code>reported</code> 直至一手确认）。</li>
+</ol>
+<h3>要点表</h3>
+<div class="table-scroll">
+<table>
+<caption>要点表（草稿，待核）</caption>
+<thead>
+<tr>
+<th scope="col">Topic</th>
+<th scope="col">Summary</th>
+<th scope="col">Status</th>
+<th scope="col">Last verified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mode boundary</td>
+<td>Multiplayer ≠ DMZ extraction 玩法；钥匙/FOB/特质表在 B-P0</td>
+<td>confirmed（站内边界）</td>
+<td>2026-10-24</td>
+</tr>
+<tr>
+<td>Maps</td>
+<td>本页不嵌全图；索引页 <code>/mw4-maps</code> 为 P1</td>
+<td>confirmed（站内策略）</td>
+<td>2026-10-24</td>
+</tr>
+<tr>
+<td>Playlist names</td>
+<td>具体清单名留空待核</td>
+<td>reported</td>
+<td>2026-10-24</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>FAQ</h3>
+<div class="table-scroll">
+<table>
+<caption>FAQ（草稿，待核）</caption>
+<thead>
+<tr>
+<th scope="col">Q</th>
+<th scope="col">A</th>
+<th scope="col">Status</th>
+<th scope="col">Last verified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is DMZ part of Multiplayer?</td>
+<td>DMZ 为独立 extraction 向体验（以官方命名为准）；查询入口见 <a href="/dmz-mw4/">/dmz-mw4</a>。</td>
+<td>confirmed（导流策略）/ 官方措辞待核</td>
+<td>2026-10-24</td>
+</tr>
+<tr>
+<td>Where are map details?</td>
+<td>地图索引页（P1）<code>/mw4-maps</code>；本批正文不含。</td>
+<td>confirmed（站内规划）</td>
+<td>2026-10-24</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div slot="sources">
+<div class="table-scroll">
+<table>
+<caption>Sources and update dates</caption>
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Source</th>
+<th scope="col">Date</th>
+<th scope="col">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr id="source-1">
+<td>1</td>
+<td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td>
+<td>2026-10-24</td>
+<td>模式命名上下文；多人专页 URL 待补</td>
+</tr>
+<tr id="source-2">
+<td>2</td>
+<td>（待补）官方 Multiplayer 说明</td>
+<td>—</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </GuideLayout>

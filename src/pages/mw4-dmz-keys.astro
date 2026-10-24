@@ -1,10 +1,64 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
 import FilterableTable from '../components/FilterableTable.astro';
+
+const rows = [
+  [
+    "（待核）",
+    "（待核）",
+    "（待核）",
+    "（待核——禁止编造效果）",
+    "reported",
+    "2026-10-24",
+    ""
+  ],
+  [
+    "（待核）",
+    "（待核）",
+    "（待核）",
+    "（待核）",
+    "reported",
+    "2026-10-24",
+    ""
+  ]
+];
 ---
-<GuideLayout title="MW4 DMZ Keys List">
-<p slot="definition">This page reserves space for MW4 DMZ Keys List. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Select a column and type text to filter matching rows. With no entries, the result count stays at zero. Future rows retain their source order; check Status and Sources before use.</p>
-<div slot="body"><FilterableTable columns={["Key name", "Location / POI", "Grid (approx.)", "Opens / use", "Status", "Last verified", "Sources"]} caption="MW4 DMZ Keys List" id="mw4-dmz-keys" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li><li><a href="/mw4-dmz-police-station/">MW4 DMZ Police Station</a></li><li><a href="/mw4-dmz-radio-tower/">MW4 DMZ Radio Tower</a></li><li><a href="/mw4-maps/">MW4 Maps Index</a></li></ul></div>
+<GuideLayout title="MW4 DMZ Keys List" lang="zh-CN">
+  <div slot="definition">
+    <p>本表收录 MW4 DMZ <strong>钥匙（Keys）</strong>：名称、大致点位/POI、用途摘要与核实状态。</p>
+    <p><strong>不</strong>覆盖：未命名掉落、未核验的精确坐标冒充官方、编造的开启效果。</p>
+    <p>单点位深页（<a href="/mw4-dmz-police-station/">Police Station</a>、<a href="/mw4-dmz-radio-tower/">Radio Tower</a> 等）为 P1，本批仅预留链。</p>
+  </div>
+  <div slot="how-to">
+    <ol>
+      <li><strong>默认排序（建议）：</strong> Key name A→Z；实现时由静态表 + 极轻量筛选 JS 挂载（选型已锁：静态生成）。</li>
+      <li><strong>筛选项（产品实现时挂上）：</strong> Key name · Location / POI · Status。</li>
+      <li><code>Status</code>：<code>confirmed</code> 需一手或可复现来源；社区表抄来的先 <code>reported</code>。</li>
+      <li>点位名在有单点位页后链过去；回导览 <a href="/dmz-mw4/">/dmz-mw4</a>。</li>
+      <li>地图索引（P1）：<a href="/mw4-maps/">/mw4-maps/</a>。</li>
+    </ol>
+  </div>
+  <div slot="body">
+    <p><strong>筛选项（产品实现时挂上）：</strong> Key name · Location / POI · Grid (approx.) · Opens / use · Status</p>
+    <FilterableTable
+      columns={["Key name", "Location / POI", "Grid (approx.)", "Opens / use", "Status", "Last verified", "Sources"]}
+      caption="MW4 DMZ Keys List — 待核行模板，无已核游戏数据"
+      id="mw4-dmz-keys"
+      rows={rows}
+      note={"空行模板仅示意列结构；禁止填入未核验的钥匙名效果、代码或数值。有一手来源后再增行并改 confirmed。"}
+    />
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>术语与模式口径；钥匙逐条需游戏内/官方补丁再核</td></tr>
+          <tr id="source-2"><td>2</td><td>（待补）游戏内截图 / 官方博客 / 可复现一手</td><td>—</td><td>逐行挂 Sources 编号</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Sources: <a href="#source-1">[1]</a></p>
+  </div>
 </GuideLayout>

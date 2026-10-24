@@ -1,10 +1,60 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
 import FilterableTable from '../components/FilterableTable.astro';
+
+const rows = [
+  [
+    "（待核——仅作行模板）",
+    "（留空待核，禁止编等级）",
+    "（留空待核，禁止编效果）",
+    "reported",
+    "2026-10-24",
+    ""
+  ],
+  [
+    "（待核）",
+    "（留空）",
+    "（留空）",
+    "reported",
+    "2026-10-24",
+    ""
+  ]
+];
 ---
-<GuideLayout title="MW4 DMZ FOB Unlocks">
-<p slot="definition">This page reserves space for MW4 DMZ FOB Unlocks. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Select a column and type text to filter matching rows. With no entries, the result count stays at zero. Future rows retain their source order; check Status and Sources before use.</p>
-<div slot="body"><FilterableTable columns={["Site / unlock", "Level or requirement", "What it enables", "Status", "Last verified", "Sources"]} caption="MW4 DMZ FOB Unlocks" id="mw4-dmz-fob" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li></ul></div>
+<GuideLayout title="MW4 DMZ FOB Unlocks" lang="zh-CN">
+  <div slot="definition">
+    <p>本表说明 MW4 DMZ <strong>FOB（Forward Operating Base）</strong> 相关解锁：站点/项目、需求、解锁后用途摘要。</p>
+    <p>官方 DMZ 落地页存在 <strong>FOB</strong> 向版块（模块存在性可核对）；<strong>本表不编造解锁等级或数值</strong>。</p>
+  </div>
+  <div slot="how-to">
+    <ol>
+      <li>读 <code>Level or requirement</code> 与 <code>What it enables</code> 时先看 <code>Status</code>。</li>
+      <li><strong>筛选项（实现时）：</strong> Site / unlock · Status。</li>
+      <li>需求数字一律空着或标「待核」，有官方/游戏内证据再填。</li>
+      <li>回 <a href="/dmz-mw4/">/dmz-mw4</a>；官方说明见 Sources。</li>
+    </ol>
+  </div>
+  <div slot="body">
+    <p><strong>筛选项（产品实现时挂上）：</strong> Site / unlock · Level or requirement · Status</p>
+    <FilterableTable
+      columns={["Site / unlock", "Level or requirement", "What it enables", "Status", "Last verified", "Sources"]}
+      caption="MW4 DMZ FOB Unlocks — 待核行模板，无已核游戏数据"
+      id="mw4-dmz-fob"
+      rows={rows}
+      note={"待核行仅作模板；解锁等级、需求与效果均待一手核验。"}
+    />
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>页含 FOB 相关版块（结构 <code>confirmed</code>）；逐条解锁待核</td></tr>
+          <tr id="source-2"><td>2</td><td>（待补）游戏内 FOB 界面 / 官方补丁</td><td>—</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Sources: <a href="#source-1">[1]</a></p>
+  </div>
 </GuideLayout>

@@ -1,9 +1,70 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
 ---
-<GuideLayout title="MW4 DMZ Guide Hub">
-<p slot="definition">This page reserves space for MW4 DMZ Guide Hub. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
-<div slot="body"><h3>Mechanics and lookup</h3><ul class="cards"><li><a href="/mw4-dmz-keys/">MW4 DMZ Keys List</a></li><li><a href="/mw4-dmz-fob/">MW4 DMZ FOB Unlocks</a></li><li><a href="/mw4-dmz-best-traits/">Best MW4 DMZ Traits</a></li><li><a href="/mw4-stranded-codes/">MW4 Stranded Codes</a></li></ul><h3>Locations and guides</h3><ul class="cards"><li><a href="/mw4-dmz-police-station/">MW4 DMZ Police Station</a></li><li><a href="/mw4-dmz-radio-tower/">MW4 DMZ Radio Tower</a></li><li><a href="/mw4-dmz-solo/">MW4 DMZ Solo Guide</a></li><li><a href="/is-dmz-free-in-mw4/">Is DMZ Free in MW4?</a></li><li><a href="/mw4-patch-notes/">MW4 Patch Notes</a></li><li><a href="/mw4-maps/">MW4 Maps Index</a></li></ul><h3>Release, platforms and modes</h3><ul class="cards"><li><a href="/mw4-release/">MW4 Release Date & Timeline</a></li><li><a href="/mw4-steam/">MW4 on Steam</a></li><li><a href="/mw4-campaign/">MW4 Campaign Overview</a></li><li><a href="/mw4-multiplayer/">MW4 Multiplayer Overview</a></li><li><a href="/early-access-mw4/">MW4 Early Access</a></li><li><a href="/mw4-campaign-early-access/">MW4 Campaign Early Access</a></li></ul></div>
+<GuideLayout title="MW4 DMZ Guide Hub" lang="zh-CN">
+  <div slot="definition">
+    <p>本页是 Modern Warfare 4（MW4）<strong>DMZ</strong> 专题导览：说明 DMZ 在本站覆盖哪些机制与查询页，并链到发售 / 平台 / 模式入口。</p>
+    <p>适用：想从「一词一页」入口进入钥匙、FOB、特质、代码等查询的读者。</p>
+    <p><strong>不</strong>覆盖：可缩放全图首页、日更情报站、未独立核实的传闻定论。</p>
+  </div>
+  <ol slot="how-to">
+    <li>先按意图选下方入口（机制查询 → 点位流程 → 发售/平台/模式）。</li>
+    <li>表页上的 <code>Status</code> 列：<code>confirmed</code> 可读作已核；<code>reported</code> 仅作线索。</li>
+    <li>导览卡不写具体游戏数值；数值只出现在各子页表内，且须带来源。</li>
+  </ol>
+  <div slot="body">
+    <h3>机制与查询（B · P0）</h3>
+    <div class="table-scroll">
+      <table>
+        <caption>机制与查询入口；表行待核</caption>
+        <thead><tr><th scope="col">入口</th><th scope="col">Slug</th><th scope="col">一句话</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Keys</td><td><a href="/mw4-dmz-keys/">/mw4-dmz-keys/</a></td><td>DMZ 钥匙列表与点位关联（可筛表）</td><td>页已规划；表行待核</td></tr>
+          <tr><td>FOB</td><td><a href="/mw4-dmz-fob/">/mw4-dmz-fob/</a></td><td>Forward Operating Base 解锁与用途表</td><td>页已规划；表行待核</td></tr>
+          <tr><td>Best traits</td><td><a href="/mw4-dmz-best-traits/">/mw4-dmz-best-traits/</a></td><td>特质 / 天赋树筛选表</td><td>页已规划；表行待核</td></tr>
+          <tr><td>Stranded codes</td><td><a href="/mw4-stranded-codes/">/mw4-stranded-codes/</a></td><td>Stranded 相关代码表（严格分层）</td><td>页已规划；表行待核</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>点位与流程（B · P1，本批仅链占位）</h3>
+    <div class="table-scroll">
+      <table>
+        <caption>点位与流程入口（P1）</caption>
+        <thead><tr><th scope="col">入口</th><th scope="col">Slug</th><th scope="col">说明</th></tr></thead>
+        <tbody>
+          <tr><td>Police Station</td><td><a href="/mw4-dmz-police-station/">/mw4-dmz-police-station/</a></td><td>单点位页（P1，正文另批）</td></tr>
+          <tr><td>Radio Tower</td><td><a href="/mw4-dmz-radio-tower/">/mw4-dmz-radio-tower/</a></td><td>单点位页（P1，正文另批）</td></tr>
+          <tr><td>Solo</td><td><a href="/mw4-dmz-solo/">/mw4-dmz-solo/</a></td><td>单人流程 + FAQ（P1）</td></tr>
+          <tr><td>Is DMZ free?</td><td><a href="/is-dmz-free-in-mw4/">/is-dmz-free-in-mw4/</a></td><td>短答 FAQ（P1）</td></tr>
+          <tr><td>Patch notes</td><td><a href="/mw4-patch-notes/">/mw4-patch-notes/</a></td><td>补丁列表（P1）</td></tr>
+          <tr><td>Maps index</td><td><a href="/mw4-maps/">/mw4-maps/</a></td><td>地图/区域索引，非全图工具（P1）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>发售 / 平台 / 模式（A）</h3>
+    <div class="table-scroll">
+      <table>
+        <caption>发售 / 平台 / 模式入口</caption>
+        <thead><tr><th scope="col">入口</th><th scope="col">Slug</th><th scope="col">一句话</th></tr></thead>
+        <tbody>
+          <tr><td>Release</td><td><a href="/mw4-release/">/mw4-release/</a></td><td>发售与时间线 FAQ</td></tr>
+          <tr><td>Steam</td><td><a href="/mw4-steam/">/mw4-steam/</a></td><td>Steam / 平台购买入口说明</td></tr>
+          <tr><td>Campaign</td><td><a href="/mw4-campaign/">/mw4-campaign/</a></td><td>战役概览</td></tr>
+          <tr><td>Multiplayer</td><td><a href="/mw4-multiplayer/">/mw4-multiplayer/</a></td><td>多人模式概览</td></tr>
+          <tr><td>Early Access</td><td><a href="/early-access-mw4/">/early-access-mw4/</a></td><td>EA 资格 / 时间 / 内容边界</td></tr>
+          <tr><td>Campaign EA</td><td><a href="/mw4-campaign-early-access/">/mw4-campaign-early-access/</a></td><td>战役与 EA 交叉说明</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div slot="sources" class="table-scroll">
+    <table>
+      <caption>Sources 与更新日期（草稿，待核）</caption>
+      <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th><th scope="col">Status</th></tr></thead>
+      <tbody>
+        <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>官方模式说明与术语口径；结构含 EA / FOB / Traits 等版块（页上模块存在性）</td><td>confirmed（结构）；具体数值待核</td></tr>
+        <tr id="source-2"><td>2</td><td>本站词表定稿 · 页面骨架</td><td>2026-10-24</td><td>导览范围与 slug 以站内定稿为准</td><td>confirmed（站内）</td></tr>
+      </tbody>
+    </table>
+  </div>
 </GuideLayout>

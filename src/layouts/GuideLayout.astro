@@ -2,15 +2,15 @@
 import StatusLegend from '../components/StatusLegend.astro';
 import EmptyTable from '../components/EmptyTable.astro';
 import '../styles/global.css';
-interface Props { title: string }
-const { title } = Astro.props;
+interface Props { title: string; lang?: string }
+const { title, lang = 'en' } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={`${title}: empty guide scaffold awaiting verified sources.`} />
+    <meta name="description" content={`${title}: draft guide shell pending source verification.`} />
     <title>{title}</title>
   </head>
   <body>
