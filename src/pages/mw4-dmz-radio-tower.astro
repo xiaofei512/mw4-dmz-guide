@@ -1,9 +1,83 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
 import EmptyTable from '../components/EmptyTable.astro';
+import FilterableTable from '../components/FilterableTable.astro';
+
+const detailRows = [
+  ['Region / grid (approx.)', '', '—（空）', '2026-10-24', '[1][2]'],
+  [
+    'Hunt tower · what it does',
+    'Climb a Lieutenant Hunt tower / damaged radio tower; access the Upload Station (laptop) at the top to reveal the general location of a nearby Lieutenant. This is also a Side Op intel path.',
+    'confirmed', '2026-10-24', '[1][2]'
+  ],
+  [
+    'UAV Towers · what they do',
+    'Small portable comms towers, usually defended. Activate to complete a Side Op, gain DMZ Cash, and trigger a pulse revealing nearby Operators and enemies.',
+    'confirmed', '2026-10-24', '[1]'
+  ],
+  [
+    'Triangulation · community radio towers',
+    'Community guides describe placing transmitters on radio towers / lattice pylons for the Triangulation Order, often citing two towers and a Wharf landmark. This is a reported process, not official map coordinates.',
+    'reported', '2026-10-24', '[12]'
+  ],
+  [
+    'Seven-tower area list / “5 active per match”',
+    'Secondary-guide area names (Deadtown / Tong-il / Wolves Stadium / border / South Island, etc.) and rotation claims remain reported only. Grid stays empty; there is no best-tower ranking here.',
+    'reported', '2026-10-24', '[12]'
+  ],
+  [
+    'Threat / notes',
+    'Towers and Side Ops can lead into danger. No official per-tower threat-value table is supplied; numerical ratings remain empty.',
+    'confirmed（风险提示；数值空）', '2026-10-24', '[1]'
+  ],
+  ['Related keys', 'No official “Radio Tower Key” is named in the sources checked for this page; the related-keys table remains empty.', '—', '2026-10-24', '—']
+];
 ---
-<GuideLayout title="MW4 DMZ Radio Tower">
-<p slot="definition">This page reserves space for MW4 DMZ Radio Tower. All entries await reliable sources; no game details have been verified in this scaffold. Region, approximate grid, threats and facilities await verification.</p>
-<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
-<div slot="body"><h3>Location details</h3><EmptyTable columns={["Field", "Value", "Status"]} caption="Region / grid, threats and facilities" /><h3>Related keys</h3><EmptyTable columns={["Key", "Use here", "Status", "Sources"]} caption="Keys associated with this location" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li><li><a href="/mw4-dmz-keys/">MW4 DMZ Keys List</a></li><li><a href="/mw4-maps/">MW4 Maps Index</a></li></ul></div>
+<GuideLayout title="MW4 DMZ Radio Tower" lang="zh-CN">
+  <div slot="definition">
+    <p><strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time>（Asia/Shanghai）</p>
+    <p>本页澄清 Hajin 上与「无线电 / 通讯塔」相关的三类说法：</p>
+    <ol>
+      <li><strong>Lieutenant Hunt tower（官方）</strong>：Tac-Map 可标；爬塔并在顶部 Upload Station / laptop 获取附近 Lieutenant 的<strong>大致位置</strong>，亦完成相关 Side Op。官方 Side Ops 文案也写到爬 damaged radio towers。 <code>confirmed</code> · Sources: <a href="#source-1">[1]</a><a href="#source-2">[2]</a></li>
+      <li><strong>UAV Towers（官方）</strong>：地面小型便携通讯塔；激活可完成 Side Op、获得 DMZ Cash，并 pulse 揭示附近 Operator / 敌人位置。此设施描述与 Hunt tower 分开。 <code>confirmed</code> · Sources: <a href="#source-1">[1]</a></li>
+      <li><strong>Triangulation Order · Radio Towers / lattice pylons（社区）</strong>：社区 Order 攻略中的爬塔放置 transmitter 流程。与 UAV 不同；与 Hunt tower 是否同一批结构，官方未逐条确认等价。流程与塔清单均为 <code>reported</code>。Sources: <a href="#source-12">[12]</a></li>
+    </ol>
+    <p>无官方逐塔 Grid，Region / grid 留空；社区「最佳两塔 / 必爬」说法不标为 <code>confirmed</code>。</p>
+  </div>
+  <ol slot="how-to">
+    <li>先读定义区的三类术语，再看机制表与 <code>Status</code>；可按 Field 或 Status 筛选。</li>
+    <li>社区七塔区域名与轮换规则整行按 <code>reported</code> 阅读。</li>
+    <li>相关：<a href="/mw4-maps/">/mw4-maps/</a>、<a href="/mw4-dmz-keys/">/mw4-dmz-keys/</a>；本页关联钥匙表为空。</li>
+    <li>回 <a href="/dmz-mw4/">/dmz-mw4/</a>。</li>
+  </ol>
+  <div slot="body">
+    <h3>Location details / 要点</h3>
+    <FilterableTable
+      columns={['Field', 'Value', 'Status', 'Last verified', 'Sources']}
+      caption="Radio Tower — Hunt / UAV / Triangulation 机制与核验状态"
+      id="mw4-dmz-radio-tower-details"
+      rows={detailRows}
+      isTemplate={false}
+      note="Last verified: 2026-10-24。Region / grid 留空；Triangulation 流程与七塔 / 五激活线索均为 reported，不等同官方坐标表。"
+    />
+    <h3>Related keys / 关联钥匙</h3>
+    <EmptyTable
+      columns={['Key', 'Use here', 'Status', 'Sources']}
+      caption="Radio Tower 关联钥匙 — 本窗无官方 Radio Tower Key，保持空表"
+    />
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-deep-dive-hajin">DMZ Deep Dive, Part 1: Tour of Duty – Hajin</a></td><td>October 05, 2026；核验 2026-10-24</td><td>Side Op climb radio towers；UAV Towers；Lieutenant Hunts</td></tr>
+          <tr id="source-2"><td>2</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide">DMZ Deep Dive, Part 2: FOB Full Intel Guide</a></td><td>October 09, 2026；核验 2026-10-24</td><td>Hunt tower / Upload Station 口径交叉</td></tr>
+          <tr id="source-12"><td>12</td><td><a href="https://dmzcodex.com/orders/triangulation/">DMZ Codex · Triangulation Order</a></td><td>October 24, 2026；核验 2026-10-24</td><td>社区 Order 流程 → reported</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><code>confirmed</code> · <code>reported</code> · <strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time> · Sources: <a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-12">[12]</a></p>
+  </div>
 </GuideLayout>

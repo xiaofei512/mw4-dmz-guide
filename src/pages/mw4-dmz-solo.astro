@@ -1,9 +1,76 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
+import FilterableTable from '../components/FilterableTable.astro';
+
+const stepRows = [
+  ['1. 官方允许独自', 'You may approach each deployment within a squad or acting alone—player choice.', 'confirmed', '2026-10-24', '[2]'],
+  ['2. Deploy 菜单', 'From Deploy, choose Story Missions / Dynamic Operations / Free Roam, then enter Ready Up.', 'confirmed', '2026-10-24', '[2]'],
+  ['3. Squad Fill', 'In Ready Up, Squad Fill can be set on or off. The official guide says Squad Fill on auto-groups you with two other allied players when you lack a friend squad.', 'confirmed', '2026-10-24', '[2]'],
+  ['4. Solo intent（社区 UI）', 'Community guides: turn Squad Fill Off to avoid auto-fill teammates. Exact UI steps should be checked in game.', 'reported（逐步 UI 线索）', '2026-10-24', '[13][14]'],
+  ['5. 匹配仍可能遇其他小队', 'Turning Fill off does not guarantee a private / solo-only lobby. Community reports say you can still encounter other Operator squads in Hajin.', 'reported', '2026-10-24', '[13][14]'],
+  [
+    '6. 场上生存口径（官方 HUD / 社区建议）',
+    'Official systems: Threat Level, Hostiles Kill Count, Stealth tips, Ping Wheel (Truce / assimilate), and Exfil apply whether solo or squaded. Community advice (reported): without a squadmate revive by default, bring Self-Revive and plan disengagement.',
+    'confirmed（系统）+ reported（独自救援 / 生存建议）',
+    '2026-10-24', '[1][2][14]'
+  ],
+  ['7. 「最佳」solo 活动 / Traits', 'Any best loadouts / best Traits for solo lists are entirely reported; there is no official ranking. See /mw4-dmz-best-traits/ for official effect text.', 'reported', '2026-10-24', '[13][14]']
+];
+const faqRows = [
+  ['Can I play DMZ solo?', 'Yes. Official copy allows acting alone as well as in a squad.', 'confirmed', '2026-10-24', '[2]'],
+  ['How do I avoid random teammates?', 'Use Ready Up Squad Fill Off. The official guide confirms the switch exists; exact UI steps should be checked in game, with community guides treated as reported clues.', 'confirmed（存在开关）+ reported（逐步 UI）', '2026-10-24', '[2][13]'],
+  ['Does Fill Off guarantee a solo-only match?', 'Not confirmed officially. Community reports say you can still meet other squads.', 'reported', '2026-10-24', '[13][14]'],
+  ['What are the best Traits for solo?', 'No official ranking. See /mw4-dmz-best-traits/ for official effect text; any best-for-solo ordering is reported only.', 'reported', '2026-10-24', '[2][13]'],
+  ['Where should solo players go first?', 'No official best solo POI list. Use /mw4-maps/ for named areas and keep Threat / Stealth in mind; no starting-area ranking is claimed here.', 'reported / 无官方排名', '2026-10-24', '[1]']
+];
 ---
-<GuideLayout title="MW4 DMZ Solo Guide">
-<p slot="definition">This page reserves space for MW4 DMZ Solo Guide. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
-<div slot="body"><h3>Flow overview</h3><p>Opening, objectives and completion details await verification. No gameplay steps are recorded yet.</p><EmptyTable columns={["Topic", "Summary", "Status"]} caption="Overview topics" /><h3>FAQ</h3><EmptyTable columns={["Q", "A", "Status", "Last verified"]} caption="Questions and answers awaiting sources" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li><li><a href="/mw4-dmz-keys/">MW4 DMZ Keys List</a></li><li><a href="/mw4-dmz-fob/">MW4 DMZ FOB Unlocks</a></li><li><a href="/mw4-dmz-best-traits/">Best MW4 DMZ Traits</a></li></ul></div>
+<GuideLayout title="MW4 DMZ Solo Guide" lang="zh-CN">
+  <div slot="definition">
+    <p><strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time>（Asia/Shanghai）</p>
+    <p>本页说明如何在 MW4 DMZ <strong>独自（solo）</strong>部署：官方允许的边界、匹配注意点，以及社区流程线索。</p>
+    <p>官方 FOB Guide 明确允许每次部署选择 <strong>within a squad or acting alone</strong>，由玩家决定。 <code>confirmed</code> · Sources: <a href="#source-2">[2]</a>。</p>
+    <p>官方未给「最佳 solo 流派」排名；Traits 强度排序与 best loadouts 一律 <code>reported</code>。官方效果句见 <a href="/mw4-dmz-best-traits/">Traits 效果表</a>。</p>
+  </div>
+  <ol slot="how-to">
+    <li>按「开局 → 场上 → 撤离」读流程；每步看 <code>Status</code> 与 Sources，可按 Step / Q 或 Status 筛选。</li>
+    <li>FAQ 区分官方确认、社区报告与未确认的匹配保证。</li>
+    <li>相关：<a href="/mw4-dmz-keys/">/mw4-dmz-keys/</a>、<a href="/mw4-dmz-fob/">/mw4-dmz-fob/</a>、<a href="/mw4-dmz-best-traits/">/mw4-dmz-best-traits/</a>、<a href="/mw4-maps/">/mw4-maps/</a>。</li>
+    <li>回 <a href="/dmz-mw4/">/dmz-mw4/</a>。</li>
+  </ol>
+  <div slot="body">
+    <h3>Flow overview / 流程概览</h3>
+    <FilterableTable
+      columns={['Step', 'Summary', 'Status', 'Last verified', 'Sources']}
+      caption="MW4 DMZ Solo — 7 步官方机制与社区线索"
+      id="mw4-dmz-solo-steps"
+      rows={stepRows}
+      isTemplate={false}
+      note="Last verified: 2026-10-24。acting alone / Squad Fill 为官方确认；逐步 UI、独自生存建议与最佳配装均按 reported 阅读。"
+    />
+    <h3>FAQ</h3>
+    <FilterableTable
+      columns={['Q', 'A', 'Status', 'Last verified', 'Sources']}
+      caption="MW4 DMZ Solo — 部署、匹配与 Traits FAQ"
+      id="mw4-dmz-solo-faq"
+      rows={faqRows}
+      isTemplate={false}
+      note="Last verified: 2026-10-24。不保证 solo-only 匹配；没有官方最佳 Traits 或最佳 solo POI 排名。"
+    />
+    <p>官方效果句：<a href="/mw4-dmz-best-traits/">Traits 效果表</a>；区域入口：<a href="/mw4-maps/">MW4 Maps Index</a>。Sources: <a href="#source-1">[1]</a><a href="#source-2">[2]</a>（官方系统）、<a href="#source-13">[13]</a><a href="#source-14">[14]</a>（社区线索）。</p>
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-2"><td>2</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide">DMZ Deep Dive, Part 2: FOB Full Intel Guide</a></td><td>October 09, 2026；核验 2026-10-24</td><td>acting alone；Deploy；Squad Fill</td></tr>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-deep-dive-hajin">DMZ Deep Dive, Part 1: Tour of Duty – Hajin</a></td><td>October 05, 2026；核验 2026-10-24</td><td>Threat / Stealth / Ping Wheel / Exfil</td></tr>
+          <tr id="source-13"><td>13</td><td><a href="https://dmzcodex.com/guides/dmz-solo-guide/">DMZ Codex · Solo guide</a></td><td>October 24, 2026；核验 2026-10-24</td><td>Fill Off / Traits → reported</td></tr>
+          <tr id="source-14"><td>14</td><td><a href="https://dmztracker.gg/guides/solo-dmz-guide/">DMZTracker · Solo DMZ guide</a></td><td>October 2026；核验 2026-10-24</td><td>独自差异 → reported</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><code>confirmed</code> · <code>reported</code> · <strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time> · Sources: <a href="#source-1">[1]</a><a href="#source-2">[2]</a><a href="#source-13">[13]</a><a href="#source-14">[14]</a></p>
+  </div>
 </GuideLayout>

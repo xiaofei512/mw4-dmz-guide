@@ -1,9 +1,90 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
+import FilterableTable from '../components/FilterableTable.astro';
+
+const launchNotes = 'https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes';
+const trello = 'https://trello.com/b/tocA5kKG/modern-warfare-4-infinity-ward';
+const rows = [
+  [
+    '2026-10-23',
+    'Call of Duty: Modern Warfare 4 Launch Patch Notes',
+    'Launch-day notes from Infinity Ward: stability/crash and UI/UX fixes, including DMZ Challenge wording Longshot → Headshot and Killstreak indicators carrying into DMZ. DMZ fixes cover disconnects/stability, Lieutenant intel vs Orders, FOB Upgrades Challenges and Bounty tracking, Lieutenant Hunt progress visibility across squads, Dynamic Op timer text, Hajin stuck spots, Numb the Pain Trait description accuracy, and Gas Mask / Disposable Parachute usage counts. Known Issues points to Trello; AI car fixes in DMZ are prospective. Further updates, including upcoming Multiplayer Patch Notes, are mentioned as future work.',
+    'confirmed',
+    launchNotes,
+    '2026-10-24'
+  ],
+  [
+    '2026-10-23',
+    'Known Issues board (official pointer)',
+    'Launch Patch Notes directs players to the Infinity Ward MW4 Trello board for known issues and ongoing fixes. Card text changes over time; re-check on visit. The confirmed status applies to the official pointer, not every future card revision.',
+    'confirmed（官方指向该板）',
+    trello,
+    '2026-10-24'
+  ],
+  [
+    '2026-10-20 / 2026-10-21',
+    'Pre-launch DMZ fixes (listed inside Launch Patch Notes)',
+    'The October 23 Launch Patch Notes page also records DMZ fixes addressed on October 20 and 21: crashes, AAR XP, Traits, Switch 2 prompts, and more. These are historical pre-launch sections on the same official page, not separate unofficial hotfix titles.',
+    'confirmed（官网页内分段）',
+    launchNotes,
+    '2026-10-24'
+  ]
+];
 ---
-<GuideLayout title="MW4 Patch Notes">
-<p slot="definition">This page reserves space for MW4 Patch Notes. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Future sourced patches will appear newest first. Check each status and official link; this index does not promise daily updates.</p>
-<div slot="body"><EmptyTable columns={["Date", "Title / version", "Summary", "Status", "Official link", "Last verified"]} caption="Patch list \u2014 no entries recorded" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li></ul></div>
+<GuideLayout title="MW4 Patch Notes" lang="zh-CN">
+  <div slot="definition">
+    <p><strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time>（Asia/Shanghai）</p>
+    <p>本页收录与 MW4 / DMZ 相关的<strong>官方补丁与已知问题索引摘要</strong>；完整细节见官方 patch notes。</p>
+    <p>Known Issues 以官方指向的 Trello 板为准，卡片正文可能变动。本站<strong>不承诺每日更新</strong>。</p>
+  </div>
+  <ol slot="how-to">
+    <li>按日期倒序；先看 <code>Status</code>，再点 Official link。可按日期、标题或状态筛选。</li>
+    <li>Summary 是官方句意摘要；原文级细节见 <a href={launchNotes}>Launch Patch Notes</a>。</li>
+    <li>Known Issues 见 <a href={trello}>Infinity Ward MW4 Trello</a>；社媒 / @CODUpdates 仅作线索。</li>
+    <li>回 <a href="/dmz-mw4/">/dmz-mw4/</a>。</li>
+  </ol>
+  <div slot="body">
+    <div id="patch-notes-list">
+      <FilterableTable
+        columns={['Date', 'Title / version', 'Summary', 'Status', 'Official link', 'Last verified']}
+        caption="MW4 Patch Notes — Launch、Known Issues 与 pre-launch 分段索引"
+        id="mw4-patch-notes"
+        rows={rows}
+        isTemplate={false}
+        note="Last verified: 2026-10-24。后续修复计划按未来事项阅读；Trello 卡片随访问时间变化，本站不承诺日更。"
+      />
+    </div>
+    <p>Sources: <a href="#source-7">[7]</a><a href="#source-8">[8]</a>。Pre-launch 行引用同一篇 Launch Patch Notes 的历史分段。</p>
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-7"><td>7</td><td><a href={launchNotes}>Launch Patch Notes</a></td><td>October 23, 2026；核验 2026-10-24</td><td>主源；DMZ 段与 pre-launch 分段</td></tr>
+          <tr id="source-8"><td>8</td><td><a href={trello}>Trello · MW4 Infinity Ward</a></td><td>核验 2026-10-24</td><td>Known Issues 官方指向板</td></tr>
+          <tr id="source-5"><td>5</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-live-worldwide-now">MW4 is Live Worldwide</a></td><td>October 23, 2026；核验 2026-10-24</td><td>全量上线时间锚；逐条修复见 patch notes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><code>confirmed</code> · <code>reported</code> · <strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time> · Sources: <a href="#source-5">[5]</a><a href="#source-7">[7]</a><a href="#source-8">[8]</a></p>
+  </div>
 </GuideLayout>
+
+<script>
+  // FilterableTable renders text cells; enhance the known official URLs locally.
+  const officialLinks = new Map([
+    ['https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes', 'Launch Patch Notes'],
+    ['https://trello.com/b/tocA5kKG/modern-warfare-4-infinity-ward', 'MW4 Infinity Ward Trello']
+  ]);
+  document.querySelectorAll<HTMLTableCellElement>('#patch-notes-list tbody td:nth-child(5)').forEach(cell => {
+    const url = cell.textContent?.trim() ?? '';
+    const label = officialLinks.get(url);
+    if (!label) return;
+    const link = document.createElement('a');
+    link.href = url;
+    link.textContent = label;
+    cell.replaceChildren(link);
+  });
+</script>

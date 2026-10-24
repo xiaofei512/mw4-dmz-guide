@@ -1,9 +1,109 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
+import FilterableTable from '../components/FilterableTable.astro';
+
+const columns = ['Map / area', 'Mode', 'Standalone pages', 'Status', 'Last verified'];
+const verified = '2026-10-24';
+const dmzRows = [
+  ...[
+    'Hajin (Exclusion Zone overview)',
+    '14th Political Prison',
+    'Chang-san Air Base',
+    'Deadtown',
+    'Imjin Farmland',
+    'Cheongun Village',
+    'Mirae General Hospital',
+    'Cheonwang Peak Array',
+    'Haneul Nuclear Reactor',
+    'NuriGO Mall',
+    'The Grid',
+    'Songdo Wharf',
+    'Wolves Stadium',
+    'Hajin River Heights'
+  ].map(name => [name, 'DMZ', '—', 'confirmed', verified]),
+  ['Police Stations（key buildings · 蓝色）', 'DMZ', '/mw4-dmz-police-station/', 'confirmed（机制/建筑类）', verified],
+  ['Lieutenant Hunt towers / Radio-tower Side Ops · UAV Towers', 'DMZ', '/mw4-dmz-radio-tower/', 'confirmed（机制类；见术语拆分）', verified]
+];
+const mpRows = [
+  ...[
+    'Cachette', 'Coal', 'Lithium', 'Lotus', 'Mumbai', 'Munition',
+    'Nautical', 'Reactor U92', 'Rooftops', 'Sentry', 'Silkworm', 'Transit 213'
+  ].map(name => [name, 'MP · Core 6v6', '—', 'confirmed', verified]),
+  ...['Imjin Farmland', 'Wolves Stadium', 'Forest'].map(name => [name, 'MP · Ground War 32v32', '—', 'confirmed', verified]),
+  ...['Cafe', 'Library', 'NYC', 'Smuggler'].map(name => [name, 'MP · Gunfight 2v2', '—', 'confirmed', verified]),
+  ['Kill Block', 'MP · 3v3 / 10v10 Gunfight（modular）', '—', 'confirmed', verified],
+  ['Shipment（post-launch · Oct 27）', 'MP · Core 6v6', '—', 'confirmed（官方标注 post-launch）', verified]
+];
 ---
-<GuideLayout title="MW4 Maps Index">
-<p slot="definition">This page reserves space for MW4 Maps Index. All entries await reliable sources; no game details have been verified in this scaffold. This is a map and region index; map names and mode assignments await verification.</p>
-<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
-<div slot="body"><EmptyTable columns={["Map / area", "Mode", "Standalone pages", "Status", "Last verified"]} caption="Map and region index" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li><li><a href="/mw4-dmz-police-station/">MW4 DMZ Police Station</a></li><li><a href="/mw4-dmz-radio-tower/">MW4 DMZ Radio Tower</a></li></ul></div>
+<GuideLayout title="MW4 Maps Index" lang="zh-CN">
+  <div slot="definition">
+    <p><strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time>（Asia/Shanghai）</p>
+    <p>本页是 MW4 / DMZ <strong>地图与区域入口索引</strong>（五列）。DMZ 主地图为 <strong>Hajin</strong> Exclusion Zone；Multiplayer 另有 Core / Ground War / Gunfight / Kill Block 等地图。</p>
+    <p>本站不提供可缩放全图编辑器；需要互动图可打开第三方示意工具，其精度以各站说明为准。</p>
+  </div>
+  <ol slot="how-to">
+    <li>按 <strong>Mode</strong>（DMZ / MP）找区域或地图名；可按 Map / area、Mode 或 Status 筛选。</li>
+    <li>有独立页的点位见 Standalone pages 列。</li>
+    <li>点位细节：<a href="/mw4-dmz-police-station/">Police Station</a>、<a href="/mw4-dmz-radio-tower/">Radio Tower</a>。塔类术语在 Radio Tower 页拆分说明。</li>
+    <li>回 <a href="/dmz-mw4/">/dmz-mw4/</a>。</li>
+  </ol>
+  <div slot="body">
+    <h3>DMZ · Hajin major POIs</h3>
+    <p>官方 Tour of Hajin 名录：14 行地图 / 主要区域，另有 2 行建筑 / 塔类机制入口。Sources: <a href="#source-1">[1]</a>。</p>
+    <div id="dmz-maps-index">
+      <FilterableTable
+        columns={columns}
+        caption="DMZ · Hajin 地图、主要区域与独立页入口"
+        id="mw4-maps-dmz"
+        rows={dmzRows}
+        isTemplate={false}
+        note="Last verified: 2026-10-24。建筑 / 机制行不代表独立地图；具体门址与 Grid 不在此索引填入。"
+      />
+    </div>
+    <h3>Multiplayer · Launch maps</h3>
+    <p>官方 launch 共 <strong>20 Multiplayer maps</strong>：12 Core 6v6 + 3 Ground War + 4 Gunfight + Kill Block。Shipment 标为 <strong>post-launch（October 27）</strong>，单列展示，不计入 launch 20。Sources: <a href="#source-9">[9]</a><a href="#source-7">[7]</a><a href="#source-5">[5]</a>。</p>
+    <FilterableTable
+      columns={columns}
+      caption="Multiplayer · 20 launch maps + Shipment post-launch"
+      id="mw4-maps-mp"
+      rows={mpRows}
+      isTemplate={false}
+      note="Last verified: 2026-10-24。Shipment 的 confirmed 仅指官方 post-launch 标注，不表示已在 launch 地图池内。"
+    />
+    <h3>外链示意</h3>
+    <p><strong>Third-party interactive maps：</strong> <a href="https://dmzmap.com/">DMZMap</a>、<a href="https://mw4map.com/">MW4Map</a> 是第三方工具。本站仅提供外链；这些工具的图钉 / Grid 不作为本站 <code>confirmed</code> 坐标。 <code>reported</code>（外链说明） · Last verified: 2026-10-24 · Sources: <a href="#source-15">[15]</a>。</p>
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-deep-dive-hajin">DMZ Deep Dive, Part 1: Tour of Duty – Hajin</a></td><td>October 05, 2026；核验 2026-10-24</td><td>DMZ major POI 名录；Police Stations / UAV / Hunt towers</td></tr>
+          <tr id="source-9"><td>9</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-maps-modes">Ready for Launch: Multiplayer Maps and Modes</a></td><td>October 21, 2026；核验 2026-10-24</td><td>MP 地图清单与 Shipment post-launch 标注</td></tr>
+          <tr id="source-7"><td>7</td><td><a href="https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes">Launch Patch Notes</a></td><td>October 23, 2026；核验 2026-10-24</td><td>20 Multiplayer maps 交叉</td></tr>
+          <tr id="source-5"><td>5</td><td><a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-live-worldwide-now">MW4 is Live Worldwide</a></td><td>October 23, 2026；核验 2026-10-24</td><td>20 maps 口径</td></tr>
+          <tr id="source-15"><td>15</td><td><a href="https://dmzmap.com/">DMZMap</a> / <a href="https://mw4map.com/">MW4Map</a></td><td>October 23, 2026 等；核验 2026-10-24</td><td>第三方互动图外链示意</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><code>confirmed</code> · <code>reported</code> · <strong>Last verified:</strong> <time datetime="2026-10-24">2026-10-24</time> · Sources: <a href="#source-1">[1]</a><a href="#source-5">[5]</a><a href="#source-7">[7]</a><a href="#source-9">[9]</a><a href="#source-15">[15]</a></p>
+  </div>
 </GuideLayout>
+
+<script>
+  // Add links to the two known standalone-page cells without changing the shared table.
+  const standalonePages = new Map([
+    ['/mw4-dmz-police-station/', 'Police Station'],
+    ['/mw4-dmz-radio-tower/', 'Radio Tower']
+  ]);
+  document.querySelectorAll<HTMLTableCellElement>('#dmz-maps-index tbody td:nth-child(3)').forEach(cell => {
+    const url = cell.textContent?.trim() ?? '';
+    const label = standalonePages.get(url);
+    if (!label) return;
+    const link = document.createElement('a');
+    link.href = url;
+    link.textContent = label;
+    cell.replaceChildren(link);
+  });
+</script>
