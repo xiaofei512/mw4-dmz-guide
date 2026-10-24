@@ -1,9 +1,43 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
 ---
-<GuideLayout title="MW4 Release Date & Timeline">
-<p slot="definition">This page reserves space for MW4 Release Date & Timeline. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
-<div slot="body"><p><strong>Short answer:</strong> Awaiting reliable official sources. No release timing, eligibility or pricing claim is recorded.</p><h3>FAQ</h3><EmptyTable columns={["Q", "A", "Status", "Last verified"]} caption="Questions and answers awaiting sources" /><h3>Related guides</h3><ul class="cards"><li><a href="/mw4-steam/">MW4 on Steam</a></li><li><a href="/early-access-mw4/">MW4 Early Access</a></li></ul></div>
+<GuideLayout title="MW4 Release Date & Timeline" lang="zh-CN">
+  <div slot="definition">
+    <p>本页回答「MW4 何时发售 / 时间线」类意图，汇总可核对的官方时间线线索。</p>
+    <p><strong>不</strong>替代官方商店页或预购页；<strong>不</strong>承诺精确时刻或地区差异以外的保证。</p>
+  </div>
+  <ol slot="how-to">
+    <li>先看「一句话答案」。</li>
+    <li>再展开 FAQ；每条看 <code>Status</code> 与 <code>Last verified</code>。</li>
+    <li>平台购买见 <a href="/mw4-steam/">/mw4-steam/</a>；Early Access 边界见 <a href="/early-access-mw4/">/early-access-mw4/</a>；回导览 <a href="/dmz-mw4/">/dmz-mw4/</a>。</li>
+  </ol>
+  <div slot="body">
+    <p><strong>一句话答案：</strong> 以 Call of Duty / 官方商店页公布的发售与 Early Access 说明为准；本站不在此填写未核验的精确时刻。 <code>reported</code>（草稿占位，待对照官方页更新为 <code>confirmed</code>）</p>
+    <h3>FAQ</h3>
+    <details open>
+      <summary>发售与时间线 FAQ</summary>
+      <div class="table-scroll">
+        <table>
+          <caption>MW4 发售与时间线（草稿，待核）</caption>
+          <thead><tr><th scope="col">Q</th><th scope="col">A</th><th scope="col">Status</th><th scope="col">Last verified</th></tr></thead>
+          <tbody>
+            <tr><td>When does MW4 release?</td><td>以官方落地页与商店页为准；本站不编造日期/时刻。核对后把短答与 Status 写回本行。</td><td>reported（待核）</td><td>2026-10-24</td></tr>
+            <tr><td>Is there Early Access before full launch?</td><td>官方 DMZ 落地页含 Early Access 相关版块（模块存在：<code>confirmed</code>）。具体资格、时长与可玩内容见 <a href="/early-access-mw4/">/early-access-mw4/</a>，勿在本页展开未核细节。</td><td>confirmed（版块存在）/ 细节待核</td><td>2026-10-24</td></tr>
+            <tr><td>Where should I buy / pre-order?</td><td>见 <a href="/mw4-steam/">/mw4-steam/</a>；价格与 SKU 以商店页为准。</td><td>confirmed（跳转策略）</td><td>2026-10-24</td></tr>
+            <tr><td>Does release timing differ by platform or region?</td><td>可能因平台/地区而异；以各商店页与官方公告为准，本站不汇总未核地区表。</td><td>reported（待核）</td><td>2026-10-24</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+  <div slot="sources" class="table-scroll">
+    <table>
+      <caption>Sources · 来源与更新日期（草稿，待核）</caption>
+      <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+      <tbody>
+        <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>发售/EA 口径以该页及关联商店链为准</td></tr>
+        <tr id="source-2"><td>2</td><td>（待补）Steam / 主机商店页 URL</td><td>—</td><td>拍板后填入，勿写价格</td></tr>
+      </tbody>
+    </table>
+  </div>
 </GuideLayout>

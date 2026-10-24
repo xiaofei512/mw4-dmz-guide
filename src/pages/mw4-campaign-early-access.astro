@@ -1,9 +1,121 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
 ---
-<GuideLayout title="MW4 Campaign Early Access">
-<p slot="definition">This page reserves space for MW4 Campaign Early Access. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Read the scope, then the empty reference tables. Status labels describe future sourced entries; blank tables make no claims.</p>
-<div slot="body"><h3>Flow overview</h3><p>Opening, objectives and completion details await verification. No gameplay steps are recorded yet.</p><EmptyTable columns={["Topic", "Summary", "Status"]} caption="Overview topics" /><h3>FAQ</h3><EmptyTable columns={["Q", "A", "Status", "Last verified"]} caption="Questions and answers awaiting sources" /><h3>Related guides</h3><ul class="cards"><li><a href="/mw4-campaign/">MW4 Campaign Overview</a></li><li><a href="/early-access-mw4/">MW4 Early Access</a></li></ul></div>
+<GuideLayout lang="zh-CN" title="MW4 Campaign Early Access">
+<div slot="definition">
+<p>本页专门回答「<strong>战役是否 / 如何进入 Early Access</strong>」：在 A4（战役）与 A6（EA）之间给出交叉说明与边界。<br>
+<strong>不</strong>用营销口吻承诺未证实的战役章节或时长。</p>
+</div>
+<div slot="how-to">
+<ol>
+<li>先读战役总览 <a href="/mw4-campaign/">/mw4-campaign</a> 与 EA 边界 <a href="/early-access-mw4/">/early-access-mw4</a>。</li>
+<li>本页只补「战役 × EA」交叉 FAQ 与要点表。</li>
+<li>回导览 <a href="/dmz-mw4/">/dmz-mw4</a>。</li>
+</ol>
+</div>
+<div slot="body">
+<h3>流程概览</h3>
+<ol>
+<li><strong>确认 EA 资格：</strong> 按 <a href="/early-access-mw4/">/early-access-mw4</a> 对照官方/商店说明。</li>
+<li><strong>进入战役：</strong> 若 EA 含战役，从模式菜单进入 Campaign（菜单文案待核）。</li>
+<li><strong>进度边界：</strong> 进度是否保留到正式版等 —— 未证实前标 <code>reported</code>，不写承诺。</li>
+</ol>
+<h3>要点表</h3>
+<div class="table-scroll">
+<table>
+<caption>要点表（草稿，待核）</caption>
+<thead>
+<tr>
+<th scope="col">Topic</th>
+<th scope="col">Summary</th>
+<th scope="col">Status</th>
+<th scope="col">Last verified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cross-link A4</td>
+<td>战役机制与模式边界 → <a href="/mw4-campaign/">/mw4-campaign</a></td>
+<td>confirmed（站内）</td>
+<td>2026-10-24</td>
+</tr>
+<tr>
+<td>Cross-link A6</td>
+<td>EA 资格/时间/内容三栏 → <a href="/early-access-mw4/">/early-access-mw4</a></td>
+<td>confirmed（站内）</td>
+<td>2026-10-24</td>
+</tr>
+<tr>
+<td>Campaign in EA?</td>
+<td>是否包含、含多少章节：待官方/游戏内核对；草稿不填章节名</td>
+<td>reported（待核）</td>
+<td>2026-10-24</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>FAQ</h3>
+<div class="table-scroll">
+<table>
+<caption>FAQ（草稿，待核）</caption>
+<thead>
+<tr>
+<th scope="col">Q</th>
+<th scope="col">A</th>
+<th scope="col">Status</th>
+<th scope="col">Last verified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is the full Campaign available in Early Access?</td>
+<td>未核验前不回答「是/否」定论；核对官方后更新本行。临时：见 A6 内容边界三栏。</td>
+<td>reported（待核）</td>
+<td>2026-10-24</td>
+</tr>
+<tr>
+<td>Does Campaign EA progress carry over?</td>
+<td>未证实；标 <code>reported</code> 直至官方说明。</td>
+<td>reported（待核）</td>
+<td>2026-10-24</td>
+</tr>
+<tr>
+<td>Where is general EA info?</td>
+<td><a href="/early-access-mw4/">/early-access-mw4</a></td>
+<td>confirmed（站内）</td>
+<td>2026-10-24</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div slot="sources">
+<div class="table-scroll">
+<table>
+<caption>Sources and update dates</caption>
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Source</th>
+<th scope="col">Date</th>
+<th scope="col">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr id="source-1">
+<td>1</td>
+<td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td>
+<td>2026-10-24</td>
+<td>EA 相关版块；战役专述待补官方链</td>
+</tr>
+<tr id="source-2">
+<td>2</td>
+<td>站内 <a href="/mw4-campaign/">/mw4-campaign</a> · <a href="/early-access-mw4/">/early-access-mw4</a></td>
+<td>2026-10-24</td>
+<td>交叉口径</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </GuideLayout>

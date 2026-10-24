@@ -1,10 +1,61 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
 import FilterableTable from '../components/FilterableTable.astro';
+
+const rows = [
+  [
+    "（不填具体字符串——待核）",
+    "（待核）",
+    "（待核——禁止编造）",
+    "reported",
+    "2026-10-24",
+    ""
+  ],
+  [
+    "（不填具体字符串——待核）",
+    "（待核）",
+    "（待核）",
+    "reported",
+    "2026-10-24",
+    ""
+  ]
+];
 ---
-<GuideLayout title="MW4 Stranded Codes">
-<p slot="definition">This page reserves space for MW4 Stranded Codes. All entries await reliable sources; no game details have been verified in this scaffold. Code usability is not guaranteed. Unverified codes will be marked reported or omitted.</p>
-<p slot="how-to">Select a column and type text to filter matching rows. With no entries, the result count stays at zero. Future rows retain their source order; check Status and Sources before use.</p>
-<div slot="body"><FilterableTable columns={["Code / label", "Where used", "Effect summary", "Status", "Last verified", "Sources"]} caption="MW4 Stranded Codes" id="mw4-stranded-codes" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li></ul></div>
+<GuideLayout title="MW4 Stranded Codes" lang="zh-CN">
+  <div slot="definition">
+    <p>本表收录与 MW4 / DMZ <strong>Stranded codes</strong> 相关的代码或标签、使用场景与效果摘要。</p>
+    <p><strong>不保证可用</strong>：未核实代码一律 <code>reported</code> 或整行不写。</p>
+    <p><strong>禁止</strong>在草稿中填写具体代码字符串。</p>
+  </div>
+  <div slot="how-to">
+    <ol>
+      <li>只添加带 Sources 的行；无来源不进表。</li>
+      <li>读者应假设 <code>reported</code> 行可能失效、分区或已过期。</li>
+      <li><strong>筛选项（实现时）：</strong> Code / label · Where used · Status。</li>
+      <li>回 <a href="/dmz-mw4/">/dmz-mw4</a>。</li>
+    </ol>
+  </div>
+  <div slot="body">
+    <p><strong>筛选项（产品实现时挂上）：</strong> Code / label · Where used · Status</p>
+    <FilterableTable
+      columns={["Code / label", "Where used", "Effect summary", "Status", "Last verified", "Sources"]}
+      caption="MW4 Stranded Codes — 待核行模板，无已核游戏数据"
+      id="mw4-stranded-codes"
+      rows={rows}
+      note={"定义声明：本页不保证任何代码可用；上线前若仍无一手来源，可保留空表 + 本声明，优于粘贴社区未核列表。"}
+    />
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>模式口径；Stranded / 代码机制是否官方点名待核</td></tr>
+          <tr id="source-2"><td>2</td><td>（待补）可复现一手或官方补丁说明</td><td>—</td><td>无一手则不把社区列表标 <code>confirmed</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Sources: <a href="#source-1">[1]</a></p>
+  </div>
 </GuideLayout>

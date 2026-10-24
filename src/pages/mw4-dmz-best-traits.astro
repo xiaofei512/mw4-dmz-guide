@@ -1,10 +1,62 @@
 ---
 import GuideLayout from '../layouts/GuideLayout.astro';
-import EmptyTable from '../components/EmptyTable.astro';
 import FilterableTable from '../components/FilterableTable.astro';
+
+const rows = [
+  [
+    "（待核）",
+    "（待核）",
+    "（留空待核）",
+    "（留空——禁止编造效果）",
+    "reported",
+    "2026-10-24",
+    ""
+  ],
+  [
+    "（待核）",
+    "（待核）",
+    "（留空）",
+    "（留空）",
+    "reported",
+    "2026-10-24",
+    ""
+  ]
+];
 ---
-<GuideLayout title="Best MW4 DMZ Traits">
-<p slot="definition">This page reserves space for Best MW4 DMZ Traits. All entries await reliable sources; no game details have been verified in this scaffold.</p>
-<p slot="how-to">Select a column and type text to filter matching rows. With no entries, the result count stays at zero. Future rows retain their source order; check Status and Sources before use. Select Tree to filter by trait tree once verified entries exist.</p>
-<div slot="body"><FilterableTable columns={["Trait", "Tree", "Cost / points", "Effect summary", "Status", "Last verified", "Sources"]} caption="Best MW4 DMZ Traits" id="mw4-dmz-best-traits" /><h3>Related guides</h3><ul class="cards"><li><a href="/dmz-mw4/">MW4 DMZ Guide Hub</a></li></ul></div>
+<GuideLayout title="Best MW4 DMZ Traits" lang="zh-CN">
+  <div slot="definition">
+    <p>本表收录 MW4 DMZ <strong>特质 / 天赋（Traits）</strong>：所属树、点数消耗（待核）、效果摘要与核实状态。</p>
+    <p>标题含 “Best” 仅对齐搜索意图；<strong>不做无来源的「强度排名」</strong>。官方落地页存在 Traits 向版块（模块存在性可核对）。</p>
+  </div>
+  <div slot="how-to">
+    <ol>
+      <li>按 <strong>Tree</strong> 筛选（实现时挂上）；不要把 <code>reported</code> 效果写成攻略定论。</li>
+      <li><strong>Cost / points</strong> 列允许长期为空，直到游戏内或官方给出可引用数字。</li>
+      <li>「怎么搭配」类建议若无一手依据，整段不写或标 <code>reported</code>。</li>
+      <li>回 <a href="/dmz-mw4/">/dmz-mw4</a>。</li>
+    </ol>
+  </div>
+  <div slot="body">
+    <p><strong>筛选项（产品实现时挂上）：</strong> Trait · Tree · Status</p>
+    <FilterableTable
+      columns={["Trait", "Tree", "Cost / points", "Effect summary", "Status", "Last verified", "Sources"]}
+      caption="Best MW4 DMZ Traits — 待核行模板，无已核游戏数据"
+      id="mw4-dmz-best-traits"
+      rows={rows}
+      note={"待核行仅作模板；点数与效果逐条待核，不做无来源的强度排名。"}
+    />
+  </div>
+  <div slot="sources">
+    <div class="table-scroll">
+      <table>
+        <caption>Sources and update dates</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Source</th><th scope="col">Date</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr id="source-1"><td>1</td><td><a href="https://www.callofduty.com/modernwarfare4/dmz">Official MW4 DMZ</a></td><td>2026-10-24</td><td>页含 Traits 相关版块（结构 <code>confirmed</code>）；点数与效果逐条待核</td></tr>
+          <tr id="source-2"><td>2</td><td>（待补）游戏内特质界面 / 官方说明</td><td>—</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Sources: <a href="#source-1">[1]</a></p>
+  </div>
 </GuideLayout>
